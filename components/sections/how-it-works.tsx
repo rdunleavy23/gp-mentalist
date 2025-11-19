@@ -1,0 +1,151 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { Calendar, Sparkles, Zap } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+
+export function HowItWorks() {
+  const steps = [
+    {
+      number: "1",
+      title: "Share Your Event Details",
+      description: "Tell us about your date, audience size, and event type",
+      icon: Calendar,
+    },
+    {
+      number: "2",
+      title: "Customized Performance Plan",
+      description: "Grant designs magic that fits your event goals and company culture",
+      icon: Sparkles,
+    },
+    {
+      number: "3",
+      title: "Blow Minds, Build Memories",
+      description: "Your team experiences world-class entertainment they'll talk about for years",
+      icon: Zap,
+    },
+  ]
+
+  return (
+    <section className="py-16 md:py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 md:mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            How It Works
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Three simple steps to an unforgettable event
+          </p>
+        </motion.div>
+
+        {/* Desktop - Horizontal */}
+        <div className="hidden md:grid md:grid-cols-3 gap-8 items-start">
+          {steps.map((step, index) => {
+            const Icon = step.icon
+            return (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <Card className="h-full hover:shadow-lg transition-shadow">
+                  <CardContent className="pt-6 text-center">
+                    {/* Icon */}
+                    <div className="w-16 h-16 mx-auto mb-4 bg-secondary/10 rounded-full flex items-center justify-center">
+                      <Icon className="h-8 w-8 text-secondary" />
+                    </div>
+
+                    {/* Number */}
+                    <div className="text-5xl font-bold text-primary/20 mb-2">
+                      {step.number}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-foreground mb-3">
+                      {step.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-muted-foreground">{step.description}</p>
+                  </CardContent>
+                </Card>
+
+                {/* Arrow between steps (desktop only) */}
+                {index < steps.length - 1 && (
+                  <div className="absolute top-1/3 -right-4 transform translate-x-1/2 hidden lg:block">
+                    <svg
+                      className="w-8 h-8 text-secondary"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </div>
+                )}
+              </motion.div>
+            )
+          })}
+        </div>
+
+        {/* Mobile - Vertical */}
+        <div className="md:hidden space-y-6">
+          {steps.map((step, index) => {
+            const Icon = step.icon
+            return (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <Card className="hover:shadow-lg transition-shadow">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start space-x-4">
+                      {/* Icon */}
+                      <div className="w-14 h-14 flex-shrink-0 bg-secondary/10 rounded-full flex items-center justify-center">
+                        <Icon className="h-7 w-7 text-secondary" />
+                      </div>
+
+                      <div className="flex-1">
+                        {/* Number */}
+                        <div className="text-3xl font-bold text-primary/20 mb-1">
+                          {step.number}
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-lg font-bold text-foreground mb-2">
+                          {step.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-sm text-muted-foreground">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}

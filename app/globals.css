@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Colors - Grant Price */
+    --primary: 320 100% 29.4%; /* #960070 - Magenta/Purple */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+
+    --secondary: 172 65% 46.7%; /* #2AC4A9 - Teal/Turquoise */
+    --secondary-foreground: 0 0% 100%; /* White text on secondary */
+
+    --background: 0 0% 100%; /* White */
+    --foreground: 0 0% 0%; /* Black text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 172 65% 46.7%; /* Secondary teal for accents */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 320 100% 29.4%; /* Primary color for focus rings */
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Ensure smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Improve touch targets on mobile */
+  @media (max-width: 768px) {
+    button, a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Focus visible for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
+  }
+}
+
+@layer utilities {
+  /* Custom gradient for stats and CTA sections */
+  .gradient-primary-secondary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  }
+
+  /* Smooth animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
