@@ -3,8 +3,15 @@
 import { motion } from "motion/react"
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns"
 import { allReviews } from "@/lib/reviews"
+import { Button } from "@/components/ui/button"
 
 export function Testimonials() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
   // Transform reviews to testimonial format
   const testimonials = allReviews.map((review) => ({
     text: review.quote,
@@ -57,6 +64,26 @@ export function Testimonials() {
           <TestimonialsColumn testimonials={secondColumn} duration={30} />
           <TestimonialsColumn testimonials={thirdColumn} duration={28} />
         </div>
+
+        {/* Conversion CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-12 md:mt-16 text-center"
+        >
+          <Button
+            size="lg"
+            onClick={() => scrollToSection("contact")}
+            className="text-base md:text-lg font-semibold px-8 py-6"
+          >
+            Join these teams—check your date
+          </Button>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Reply within 4 hours • No pressure, just options
+          </p>
+        </motion.div>
       </div>
     </section>
   )

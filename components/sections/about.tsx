@@ -39,7 +39,7 @@ export function About() {
               </p>
 
               <p>
-                Currently performing his acclaimed residency at Live! by Loew&apos;s in Arlington, TX, Grant has perfected the art of reading the room and customizing every show to fit the audience&apos;s energy. With professional liability insurance, backup plans for every scenario, and 15 years of experience, he&apos;s the reliable choice for companies that won&apos;t settle for anything less than extraordinary.
+                Currently performing his acclaimed residency at Live! by Loew&apos;s in Arlington, TX, Grant has perfected the art of reading the room and customizing every show to fit the audience&apos;s energy. With backup plans for every scenario and 15 years of experience, he&apos;s the reliable choice for companies that won&apos;t settle for anything less than extraordinary.
               </p>
 
               <p className="text-foreground font-medium">

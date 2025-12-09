@@ -3,25 +3,32 @@
 import { motion } from "framer-motion"
 import { Calendar, Sparkles, Zap } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 export function HowItWorks() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
   const steps = [
     {
       number: "1",
-      title: "Share your details",
-      description: "Email your date, audience size, goals, and vibe. We&apos;ll reply quickly with availability and what to expect—no pressure.",
+      title: "Tell us about your event",
+      description: "Whether it&apos;s a 500-person conference, intimate executive retreat, or awards gala—share your date, audience size, and goals. We&apos;ll reply quickly with availability and what fits your format.",
       icon: Calendar,
     },
     {
       number: "2",
-      title: "Get a simple plan",
-      description: "We send a clear rundown (timing, setup, pacing) tailored to your agenda—nothing canned, everything paced for your room.",
+      title: "Get a custom plan",
+      description: "High-energy opener for your conference? Small-group moments at the retreat? Mix-and-mingle during cocktail hour? We send a clear rundown tailored to your event type and pacing—nothing canned.",
       icon: Sparkles,
     },
     {
       number: "3",
-      title: "Enjoy the easy show",
-      description: "We coordinate quietly, keep it corporate-clean, and your team swaps friendly “wait, how?” reactions that carry into Monday.",
+      title: "Relax and watch it work",
+      description: "From boardrooms to ballrooms, we coordinate quietly, keep it corporate-clean, and your team swaps friendly \"wait, how?\" reactions that carry into Monday. Groups from 20 to 2,000.",
       icon: Zap,
     },
   ]
@@ -146,6 +153,26 @@ export function HowItWorks() {
             )
           })}
         </div>
+
+        {/* Conversion CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-12 md:mt-16 text-center"
+        >
+          <Button
+            size="lg"
+            onClick={() => scrollToSection("contact")}
+            className="text-base md:text-lg font-semibold px-8 py-6"
+          >
+            Ready to start? Check your date
+          </Button>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Quick reply, no pressure—just availability and options
+          </p>
+        </motion.div>
       </div>
     </section>
   )

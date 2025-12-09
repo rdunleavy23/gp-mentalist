@@ -38,7 +38,7 @@ export function FAQ() {
     {
       question: "What's included in your fee?",
       answer:
-        "Performance, all props/gear, travel within 100 miles of DFW, and a pre-event call to tailor the show. I’m fully insured ($10M liability), on contract, and I bring backups so you’re covered. Outside DFW, travel is at cost.",
+        "Performance, all props/gear, travel within 100 miles of DFW, and a pre-event call to tailor the show. Everything is on contract, and I bring backups so you're covered. Outside DFW, travel is at cost.",
     },
     {
       question: "Can you perform virtually?",
@@ -48,7 +48,7 @@ export function FAQ() {
     {
       question: "What if something goes wrong?",
       answer:
-        "In 15 years, I’ve never missed a show. I’m fully insured ($10M), on contract, arrive early, and travel with backups (sound, mics, redundancies). If something hiccups, I have contingencies and keep you in the loop—no surprises.",
+        "In 15 years, I've never missed a show. I arrive early, work on contract, and travel with backups (sound, mics, redundancies). If something hiccups, I have contingencies and keep you in the loop—no surprises.",
     },
   ]
 

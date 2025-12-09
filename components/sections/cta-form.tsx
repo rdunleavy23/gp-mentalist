@@ -61,7 +61,7 @@ export function CTAForm() {
           </p>
           <div className="inline-flex items-center space-x-2 text-secondary-foreground font-semibold">
             <Zap className="h-5 w-5" />
-            <span>Two February dates open—want one?</span>
+            <span>Limited availability this quarter—check your date</span>
           </div>
         </motion.div>
 
