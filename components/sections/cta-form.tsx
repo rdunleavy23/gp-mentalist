@@ -57,7 +57,7 @@ export function CTAForm() {
             Want a Monday full of “wait… how did he do that?”
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed max-w-2xl mx-auto">
-            Join 500+ teams who bring Grant in for clean, corporate-friendly fun. Share a date and get a reply within 4 hours.
+            Join 500+ teams who trust Grant for clean, corporate-friendly fun. Share a date, get a no-pressure quote, and hear back quickly.
           </p>
           <div className="inline-flex items-center space-x-2 text-secondary-foreground font-semibold">
             <Zap className="h-5 w-5" />
@@ -81,7 +81,7 @@ export function CTAForm() {
                 Thank You!
               </h3>
               <p className="text-muted-foreground">
-                We&apos;ll get back to you within 4 hours with availability and next steps.
+                We&apos;ll get back to you quickly with availability and next steps.
               </p>
             </div>
           ) : (
@@ -174,15 +174,15 @@ export function CTAForm() {
               <div className="pt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
                 <div className="flex items-center space-x-2">
                   <Clock className="h-4 w-4 text-secondary" />
-                  <span>Reply within 4 hours</span>
+                  <span>Quick replies, same business day</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Check className="h-4 w-4 text-secondary" />
-                  <span>No-pressure quote</span>
+                  <span>No-pressure quote—just options</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Shield className="h-4 w-4 text-secondary" />
-                  <span>Secure & confidential</span>
+                  <span>Secure details, kept private</span>
                 </div>
               </div>
             </form>

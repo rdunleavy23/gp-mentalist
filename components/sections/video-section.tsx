@@ -18,7 +18,7 @@ export function VideoSection() {
             See Grant in Action
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            See how Grant turns corporate events into shared “wait, what?!” stories teams bring up all week. Check the reactions, feel the energy, and decide if it fits your crew.
+            A 60-second taste: real reactions, clean corporate-safe style, and the energy in the room. Watch and decide if this feels like your team&apos;s vibe.
           </p>
         </motion.div>
 
@@ -75,7 +75,7 @@ export function VideoSection() {
           className="mt-6 text-center"
         >
           <p className="text-sm text-muted-foreground italic">
-            Featuring highlights from corporate events, stage shows, and audience reactions
+            Featuring clips from tech offsites, executive retreats, and team celebrations—short, friendly, and zero risk to sample.
           </p>
         </motion.div>
       </div>

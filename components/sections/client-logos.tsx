@@ -56,10 +56,10 @@ export function ClientLogos() {
             Teams who trusted Grant with their people
           </h2>
           <p className="text-muted-foreground text-base md:text-lg">
-            Texas Health, Google, Microsoft, the Dallas Cowboys, and the U.S. Air Force have all brought Grant in to break the ice, spark laughs, and get folks chatting on Monday.
+            Texas Health, Google, Microsoft, the Dallas Cowboys, and the U.S. Air Force brought Grant in to get folks laughing together and trading “how did he do that?” stories.
           </p>
           <p className="text-sm text-muted-foreground">
-            A few of the teams who let me crash their agenda.
+            These are the teams who let me crash their agenda with something fun.
           </p>
         </motion.div>
 
@@ -69,6 +69,9 @@ export function ClientLogos() {
             <LogoItem key={client.name} client={client} index={index} />
             ))}
         </div>
+        <p className="text-center text-sm text-muted-foreground mt-6">
+          Planners said yes, we kept it corporate-clean, and their teams left smiling.
+        </p>
       </div>
     </section>
   )

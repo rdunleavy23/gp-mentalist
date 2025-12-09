@@ -8,20 +8,20 @@ export function HowItWorks() {
   const steps = [
     {
       number: "1",
-      title: "Share Your Event Details",
-      description: "Tell us your date, audience, goals, and culture. We&apos;ll reply within 4 hours with availability and a simple plan.",
+      title: "Share your details",
+      description: "Email your date, audience size, goals, and vibe. We&apos;ll reply quickly with availability and what to expect—no pressure.",
       icon: Calendar,
     },
     {
       number: "2",
-      title: "Customized Performance Plan",
-      description: "Grant designs moments that fit your agenda—nothing canned, everything paced for your room.",
+      title: "Get a simple plan",
+      description: "We send a clear rundown (timing, setup, pacing) tailored to your agenda—nothing canned, everything paced for your room.",
       icon: Sparkles,
     },
     {
       number: "3",
-      title: "Trade Wows, Build Memories",
-      description: "Your team swaps friendly “wait, how?” reactions and inside jokes that carry into Monday.",
+      title: "Enjoy the easy show",
+      description: "We coordinate quietly, keep it corporate-clean, and your team swaps friendly “wait, how?” reactions that carry into Monday.",
       icon: Zap,
     },
   ]

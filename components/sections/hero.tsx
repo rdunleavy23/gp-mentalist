@@ -29,11 +29,14 @@ export function Hero() {
             className="text-center lg:text-left"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white leading-[1.1] mb-6 tracking-tight">
-              Corporate mentalism everyone talks about on Monday
+              The Monday-morning mentalism people keep talking about
             </h1>
 
-            <p className="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-xl text-white/85 mb-4 leading-relaxed max-w-2xl">
               Grant Price keeps executives laughing, leaning in, and swapping “how did he do that?” stories for weeks. 15 years, 500+ corporate events, zero diva habits—just a kind pro who fits right in with your team.
+            </p>
+            <p className="text-base md:text-lg text-white/80 mb-8 leading-relaxed max-w-2xl">
+              Easy coordination, corporate-clean, and he reads the room so your culture shines.
             </p>
 
             {/* Trust Badges */}
@@ -62,6 +65,9 @@ export function Hero() {
                 Check Grant&apos;s calendar
               </Button>
             </div>
+            <p className="mt-3 text-sm text-white/80">
+              Reply within 4 hours. No pressure—just availability and options.
+            </p>
             
             {/* Secondary link (not a button) */}
             <div className="mt-4 text-center lg:text-left">
@@ -69,7 +75,7 @@ export function Hero() {
                 onClick={() => scrollToSection("video")}
                 className="text-secondary hover:text-secondary/80 underline text-base md:text-lg font-medium transition-colors"
               >
-                See a 60-second highlight →
+                See a 60-second highlight with real teams →
               </button>
             </div>
           </motion.div>
@@ -102,8 +108,9 @@ export function Hero() {
               />
               <div className="photo-fallback hidden absolute inset-0 items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
                 <div className="text-center px-4">
-                  <p className="text-white font-serif text-2xl font-bold mb-2">Grant Price</p>
-                  <p className="text-white/80">Corporate Event Mentalist</p>
+                  <p className="text-white font-serif text-2xl font-bold mb-1">Grant Price</p>
+                  <p className="text-white/85 text-sm">Corporate Event Mentalist</p>
+                  <p className="text-white/80 text-sm mt-1">Warm, corporate-safe, and easy to work with.</p>
                 </div>
               </div>
               {/* Overlay gradient for better text readability if needed */}
