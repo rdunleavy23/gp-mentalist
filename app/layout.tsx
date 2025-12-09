@@ -1,21 +1,21 @@
 import type { Metadata } from "next"
-import { Inter, Merriweather } from "next/font/google"
+import { Libre_Baskerville, Rubik } from "next/font/google"
 import "./globals.css"
 
-// Inter: Best-in-class for body text (used by Stripe, Vercel, Linear)
-const inter = Inter({
+// Rubik: Warm, approachable body font (weights 300-700)
+const rubik = Rubik({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-rubik",
+  weight: ["300", "400", "500", "600", "700"],
 })
 
-// Merriweather: Elegant serif for headings (better readability than Playfair)
-const merriweather = Merriweather({
+// Libre Baskerville: Classic serif for headings (weights 400, 700)
+const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-merriweather",
-  weight: ["400", "700", "900"],
+  variable: "--font-libre-baskerville",
+  weight: ["400", "700"],
 })
 
 export const metadata: Metadata = {
@@ -50,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
-      <body className={`${inter.className} font-sans`}>{children}</body>
+    <html lang="en" className={`${rubik.variable} ${libreBaskerville.variable}`}>
+      <body className={`${rubik.className} font-sans`}>{children}</body>
     </html>
   )
 }

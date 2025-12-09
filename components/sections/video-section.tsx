@@ -18,7 +18,7 @@ export function VideoSection() {
             See Grant in Action
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Watch how Grant transformed leading companies&apos; events into unforgettable experiences. See the reactions, feel the energy, and understand why teams talk about these performances for years.
+            See how Grant turns corporate events into shared “wait, what?!” stories teams bring up all week. Check the reactions, feel the energy, and decide if it fits your crew.
           </p>
         </motion.div>
 

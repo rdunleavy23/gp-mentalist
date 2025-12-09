@@ -17,22 +17,22 @@ export function Hero() {
   }
 
   return (
-    <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 bg-[#0A0E27]">
       {/* Set the tone early: warm, skilled, and easy to work with for corporate rooms */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-14 items-center">
           {/* Left - Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-center lg:text-left"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white leading-[1.1] mb-6 tracking-tight">
               Corporate mentalism everyone talks about on Monday
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-2xl">
               Grant Price keeps executives laughing, leaning in, and swapping “how did he do that?” stories for weeks. 15 years, 500+ corporate events, zero diva habits—just a kind pro who fits right in with your team.
             </p>
 
@@ -40,14 +40,14 @@ export function Hero() {
             <div className="space-y-4 mb-10">
               <div className="flex items-start justify-center lg:justify-start space-x-3">
                 <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                <p className="text-base md:text-lg text-foreground">
+                <p className="text-base md:text-lg text-white/90">
                   Chosen by <strong>Texas Health Resources</strong>, <strong>US Air Force</strong>, <strong>Google</strong>, <strong>Dallas Cowboys</strong>, and <strong>Microsoft</strong> for smart, clean corporate shows
                 </p>
               </div>
               <div className="flex items-start justify-center lg:justify-start space-x-3">
                 <Zap className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
-                <p className="text-base md:text-lg font-semibold text-foreground">
-                  Quick replies, easy coordination — only 2 February dates left
+                <p className="text-base md:text-lg font-semibold text-white">
+                  Quick reply, easy coordination — two February dates open
                 </p>
               </div>
             </div>
@@ -57,9 +57,9 @@ export function Hero() {
               <Button
                 size="lg"
                 onClick={() => scrollToSection("contact")}
-                className="text-base md:text-lg font-semibold px-8 py-6 md:min-h-[56px] min-h-[48px] shadow-lg hover:shadow-xl transition-shadow w-full sm:w-auto"
+                className="text-base md:text-lg font-semibold px-8 py-6 md:min-h-[56px] min-h-[48px] shadow-md hover:shadow-lg transition-transform transition-shadow duration-200 hover:scale-[1.02] w-full sm:w-auto"
               >
-                Check Grant&apos;s Availability
+                Check Grant&apos;s calendar
               </Button>
             </div>
             
@@ -67,18 +67,19 @@ export function Hero() {
             <div className="mt-4 text-center lg:text-left">
               <button
                 onClick={() => scrollToSection("video")}
-                className="text-primary hover:text-primary/80 underline text-base md:text-lg font-medium transition-colors"
+                className="text-secondary hover:text-secondary/80 underline text-base md:text-lg font-medium transition-colors"
               >
-                Watch a 60-second highlight →
+                See a 60-second highlight →
               </button>
             </div>
           </motion.div>
 
           {/* Right - Hero Image/Video */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
@@ -101,8 +102,8 @@ export function Hero() {
               />
               <div className="photo-fallback hidden absolute inset-0 items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
                 <div className="text-center px-4">
-                  <p className="text-foreground font-serif text-2xl font-bold mb-2">Grant Price</p>
-                  <p className="text-muted-foreground">Corporate Event Mentalist</p>
+                  <p className="text-white font-serif text-2xl font-bold mb-2">Grant Price</p>
+                  <p className="text-white/80">Corporate Event Mentalist</p>
                 </div>
               </div>
               {/* Overlay gradient for better text readability if needed */}

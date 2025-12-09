@@ -9,7 +9,7 @@ export function Services() {
     {
       icon: Briefcase,
       title: "Conferences & Company Meetings",
-      description: "Set the tone with a tight, upbeat show that keeps people off email and leaning in.",
+      description: "Start with a tight, upbeat show that keeps laptops shut and heads up.",
       features: [
         "High-energy opener or closer that resets the room",
         "Walkaround mind reading during receptions or breaks",
@@ -20,7 +20,7 @@ export function Services() {
     {
       icon: Users,
       title: "Executive Retreats & Team Building",
-      description: "Private, smart mentalism that gets leaders talking and teams connecting without feeling cheesy.",
+      description: "Private, smart mentalism that gets leaders talking and teams connecting without the cheese.",
       features: [
         "Small-group demonstrations that spark honest conversation",
         "Custom beats tied to your goals or values",
@@ -31,7 +31,7 @@ export function Services() {
     {
       icon: PartyPopper,
       title: "Galas, Awards & Celebrations",
-      description: "Keep guests engaged between courses, awards, and speeches with clean, corporate-safe fun.",
+      description: "Keep guests chatting between courses, awards, and speeches with clean, corporate-safe fun.",
       features: [
         "Mix-and-mingle astonishment as guests arrive",
         "Interactive stage moments between segments",
@@ -55,12 +55,12 @@ export function Services() {
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
             Three Ways to Elevate Your Event
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-[70ch] mx-auto">
             Every performance is tailored to your event goals, audience, and company culture
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 lg:gap-12">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
@@ -68,7 +68,7 @@ export function Services() {
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 1, 0.5, 1] }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02 }}
                 className="h-full"

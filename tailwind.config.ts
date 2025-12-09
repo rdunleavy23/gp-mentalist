@@ -1,5 +1,10 @@
 import type { Config } from "tailwindcss"
 
+// Typography system:
+// Headings → Libre Baskerville
+// Body → Rubik
+// Matches brand tone: warm, personable, confident, corporate-friendly.
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -19,8 +24,9 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-merriweather)', 'Georgia', 'serif'],
+        sans: ['var(--font-rubik)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-libre-baskerville)', 'Georgia', 'serif'],
+        heading: ['var(--font-libre-baskerville)', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -52,14 +52,14 @@ export function ClientLogos() {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16 space-y-3"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-merriweather font-bold text-foreground mb-2">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-2">
             Teams who trusted Grant with their people
           </h2>
           <p className="text-muted-foreground text-base md:text-lg">
             Texas Health, Google, Microsoft, the Dallas Cowboys, and the U.S. Air Force have all brought Grant in to break the ice, spark laughs, and get folks chatting on Monday.
           </p>
           <p className="text-sm text-muted-foreground">
-            A few of the friends who’ve said yes.
+            A few of the teams who let me crash their agenda.
           </p>
         </motion.div>
 

@@ -20,8 +20,8 @@ export function HowItWorks() {
     },
     {
       number: "3",
-      title: "Blow Minds, Build Memories",
-      description: "Your team trades friendly “wait, how?” reactions and shared jokes that carry into Monday.",
+      title: "Trade Wows, Build Memories",
+      description: "Your team swaps friendly “wait, how?” reactions and inside jokes that carry into Monday.",
       icon: Zap,
     },
   ]
@@ -40,13 +40,13 @@ export function HowItWorks() {
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
             How It Works
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-[70ch] mx-auto">
             From first call to applause—here&apos;s how we keep it smooth and low-stress
           </p>
         </motion.div>
 
         {/* Desktop - Horizontal */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8 items-start">
+        <div className="hidden md:grid md:grid-cols-3 gap-10 items-start">
           {steps.map((step, index) => {
             const Icon = step.icon
             return (
@@ -54,7 +54,7 @@ export function HowItWorks() {
                 key={step.number}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.12, ease: [0.25, 1, 0.5, 1] }}
                 viewport={{ once: true }}
                 className="relative"
               >
@@ -112,7 +112,7 @@ export function HowItWorks() {
                 key={step.number}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
                 viewport={{ once: true }}
               >
                 <Card className="hover:shadow-lg transition-shadow">

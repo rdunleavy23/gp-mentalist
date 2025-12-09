@@ -31,7 +31,7 @@ export function Residency() {
                     Arlington, TX
                   </p>
                   <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                    Experience Grant&apos;s signature show in person at his acclaimed residency performance venue. See why audiences return again and again.
+                    Catch Grant&apos;s signature show in person at his residency. See why teams come back with friends.
                   </p>
                 </div>
 
@@ -48,7 +48,7 @@ export function Residency() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center space-x-2"
                     >
-                      <span>See Live Shows</span>
+                      <span>See live dates</span>
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </Button>

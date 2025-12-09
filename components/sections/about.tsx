@@ -43,7 +43,7 @@ export function About() {
               </p>
 
               <p className="text-foreground font-medium">
-                Based in the Dallas/Fort Worth area, Grant serves clients nationwide and is ready to make your next event unforgettable.
+                Based in the Dallas/Fort Worth area, Grant serves clients nationwide and is ready to make your next event the one people mention on Monday.
               </p>
             </div>
           </motion.div>

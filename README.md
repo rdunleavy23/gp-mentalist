@@ -25,7 +25,7 @@ A high-converting, performance-optimized landing page for Grant Price, a corpora
 - **Animations**: Framer Motion
 - **Forms**: React Hook Form with Zod validation
 - **Icons**: Lucide React
-- **Font**: Inter (Google Fonts via next/font)
+- **Fonts**: Libre Baskerville (headings) & Rubik (body) via next/font
 
 ## Getting Started
 
@@ -162,7 +162,7 @@ const onSubmit = async (data: FormData) => {
 ## Performance Optimization
 
 - **Image Optimization**: All images use Next.js `Image` component with automatic optimization
-- **Font Loading**: Inter font loaded via `next/font` with `display: swap`
+- **Font Loading**: Libre Baskerville (headings) and Rubik (body) loaded via `next/font` with `display: swap`
 - **Code Splitting**: Automatic code splitting with Next.js App Router
 - **Lazy Loading**: Images below the fold are lazy loaded
 - **Animations**: Framer Motion animations use `transform` and `opacity` only (GPU accelerated)

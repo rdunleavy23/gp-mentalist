@@ -5,33 +5,33 @@
 @layer base {
   :root {
     /* Brand Colors - Grant Price */
-    --primary: 320 100% 29.4%; /* #960070 - Magenta/Purple */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --primary: 322 80% 44%; /* Magenta/Hot Pink #C71585 */
+    --primary-foreground: 0 0% 100%; /* White on primary */
 
-    --secondary: 172 65% 46.7%; /* #2AC4A9 - Teal/Turquoise */
-    --secondary-foreground: 0 0% 100%; /* White text on secondary */
+    --secondary: 170 73% 44%; /* Teal/Turquoise #1FBFA5 */
+    --secondary-foreground: 230 64% 11%; /* Dark navy on teal */
+
+    --accent: 45 63% 53%; /* Gold #D4AF37 */
+    --accent-foreground: 230 64% 11%; /* Dark navy on gold */
 
     --background: 0 0% 100%; /* White */
-    --foreground: 0 0% 0%; /* Black text */
+    --foreground: 230 64% 11%; /* Dark navy/black */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card-foreground: 230 64% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover-foreground: 230 64% 11%;
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+    --muted: 230 24% 96%; /* Light navy-tinted gray */
+    --muted-foreground: 230 18% 45%;
 
-    --accent: 172 65% 46.7%; /* Secondary teal for accents */
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 320 100% 29.4%; /* Primary color for focus rings */
+    --border: 230 20% 88%;
+    --input: 230 20% 88%;
+    --ring: 322 80% 44%; /* Primary for focus rings */
 
     --radius: 0.5rem;
   }
@@ -47,7 +47,7 @@
     font-feature-settings: "rlig" 1, "calt" 1;
     font-size: 16px; /* Minimum 16px for mobile readability */
     line-height: 1.7; /* Better readability (1.6-1.8 optimal) */
-    letter-spacing: -0.01em; /* Slightly tighter for Inter */
+    letter-spacing: -0.01em; /* Slightly tighter for Rubik */
   }
   
   /* Typography scale - 8px base system */

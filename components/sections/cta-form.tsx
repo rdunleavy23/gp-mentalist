@@ -43,7 +43,7 @@ export function CTAForm() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 gradient-primary-secondary">
+    <section id="contact" className="py-16 md:py-24 bg-white">
       {/* Invite a low-pressure next step with fast replies and empathy */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -53,15 +53,15 @@ export function CTAForm() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-6 tracking-tight">
-            Ready for a Monday full of “wait, how did he do that?”
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6 tracking-tight">
+            Want a Monday full of “wait… how did he do that?”
           </h2>
-          <p className="text-lg md:text-xl text-white/95 mb-6 leading-relaxed max-w-2xl mx-auto">
-            Join 500+ companies who trusted Grant for clean, corporate-friendly fun. Share your details and get a reply within 4 hours.
+          <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed max-w-2xl mx-auto">
+            Join 500+ teams who bring Grant in for clean, corporate-friendly fun. Share a date and get a reply within 4 hours.
           </p>
-          <div className="inline-flex items-center space-x-2 text-white font-semibold">
+          <div className="inline-flex items-center space-x-2 text-secondary-foreground font-semibold">
             <Zap className="h-5 w-5" />
-            <span>Only 2 February spots remaining</span>
+            <span>Two February dates open—want one?</span>
           </div>
         </motion.div>
 
@@ -70,7 +70,7 @@ export function CTAForm() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl shadow-2xl p-6 md:p-10"
+          className="bg-white rounded-2xl shadow-2xl p-8 md:p-12"
         >
           {isSubmitted ? (
             <div className="text-center py-8">
@@ -166,7 +166,7 @@ export function CTAForm() {
                   disabled={isSubmitting}
                   className="w-full text-lg font-semibold py-6"
                 >
-                  {isSubmitting ? "Checking Availability..." : "Check Availability Now"}
+                  {isSubmitting ? "Checking calendar..." : "Check a date"}
                 </Button>
               </div>
 
@@ -174,11 +174,11 @@ export function CTAForm() {
               <div className="pt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
                 <div className="flex items-center space-x-2">
                   <Clock className="h-4 w-4 text-secondary" />
-                  <span>Response within 4 hours</span>
+                  <span>Reply within 4 hours</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Check className="h-4 w-4 text-secondary" />
-                  <span>No obligation quote</span>
+                  <span>No-pressure quote</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Shield className="h-4 w-4 text-secondary" />
