@@ -9,18 +9,24 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Check, Zap, Shield, Clock } from "lucide-react"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
+  companyWebsite: z
+    .string()
+    .url("Please enter a valid company website")
+    .min(1, "Company website is required"),
   eventDate: z.string().optional(),
+  recaptchaToken: z.string().min(1, "Please complete the captcha"),
 })
 
 type FormData = z.infer<typeof formSchema>
 
 export function CTAForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [recaptchaToken, setRecaptchaToken] = useState<string>("")
 
   const {
     register,
@@ -29,6 +35,9 @@ export function CTAForm() {
     reset,
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      recaptchaToken: "",
+    },
   })
 
   const onSubmit = async (data: FormData) => {
@@ -127,22 +136,22 @@ export function CTAForm() {
                   )}
                 </div>
 
-                {/* Phone */}
+                {/* Company Website */}
                 <div className="space-y-2">
-                  <Label htmlFor="phone">
-                    Phone <span className="text-red-500">*</span>
+                  <Label htmlFor="companyWebsite">
+                    Company website <span className="text-red-500">*</span>
                   </Label>
                   <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="(555) 123-4567"
-                    {...register("phone")}
-                    aria-invalid={errors.phone ? "true" : "false"}
-                    className={errors.phone ? "border-red-500" : ""}
+                    id="companyWebsite"
+                    type="url"
+                    placeholder="https://yourcompany.com"
+                    {...register("companyWebsite")}
+                    aria-invalid={errors.companyWebsite ? "true" : "false"}
+                    className={errors.companyWebsite ? "border-red-500" : ""}
                   />
-                  {errors.phone && (
+                  {errors.companyWebsite && (
                     <p className="text-sm text-red-500" role="alert">
-                      {errors.phone.message}
+                      {errors.companyWebsite.message}
                     </p>
                   )}
                 </div>
@@ -158,12 +167,35 @@ export function CTAForm() {
                 </div>
               </div>
 
+              <div className="flex justify-center">
+                <ReCAPTCHA
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+                  onChange={(token) => {
+                    const value = token ?? ""
+                    setRecaptchaToken(value)
+                    // Manually set value for react-hook-form
+                    // @ts-expect-error register handles this field
+                    register("recaptchaToken").onChange({ target: { value } })
+                  }}
+                  onExpired={() => {
+                    setRecaptchaToken("")
+                    // @ts-expect-error register handles this field
+                    register("recaptchaToken").onChange({ target: { value: "" } })
+                  }}
+                />
+              </div>
+              {errors.recaptchaToken && (
+                <p className="text-center text-sm text-red-500" role="alert">
+                  {errors.recaptchaToken.message}
+                </p>
+              )}
+
               {/* Submit Button */}
               <div className="pt-4">
                 <Button
                   type="submit"
                   size="lg"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !recaptchaToken}
                   className="w-full text-lg font-semibold py-6"
                 >
                   {isSubmitting ? "Checking calendar..." : "Check a date"}
