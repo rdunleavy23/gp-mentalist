@@ -45,6 +45,34 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-size: 16px; /* Minimum 16px for mobile readability */
+    line-height: 1.7; /* Better readability (1.6-1.8 optimal) */
+    letter-spacing: -0.01em; /* Slightly tighter for Inter */
+  }
+  
+  /* Typography scale - 8px base system */
+  h1 {
+    @apply font-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  
+  h2, h3 {
+    @apply font-serif;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  
+  /* Ensure all body text is at least 16px on mobile */
+  @media (max-width: 768px) {
+    p, span, div {
+      font-size: 16px;
+    }
+  }
+  
+  /* Better spacing rhythm - 8px base */
+  section {
+    @apply py-16 md:py-24 lg:py-32;
   }
 
   /* Ensure smooth scrolling */

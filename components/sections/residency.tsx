@@ -24,15 +24,14 @@ export function Residency() {
                     <span>Currently Performing</span>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                    Live! by Loew's
+                  <h3 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
+                    Live! by Loew&apos;s
                   </h3>
                   <p className="text-lg text-muted-foreground mb-4">
                     Arlington, TX
                   </p>
-                  <p className="text-base text-muted-foreground">
-                    Experience Grant's signature show in person at his acclaimed
-                    residency performance venue.
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                    Experience Grant&apos;s signature show in person at his acclaimed residency performance venue. See why audiences return again and again.
                   </p>
                 </div>
 

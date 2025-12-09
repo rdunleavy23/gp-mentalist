@@ -10,7 +10,7 @@ import { About } from "@/components/sections/about"
 import { Residency } from "@/components/sections/residency"
 import { FAQ } from "@/components/sections/faq"
 import { CTAForm } from "@/components/sections/cta-form"
-import { Footer } from "@/components/sections/footer"
+import { StickyMobileCTA } from "@/components/sticky-mobile-cta"
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
       <Residency />
       <FAQ />
       <CTAForm />
-      <Footer />
+      <StickyMobileCTA />
     </main>
   )
 }

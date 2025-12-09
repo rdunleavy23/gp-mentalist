@@ -44,6 +44,7 @@ export function CTAForm() {
 
   return (
     <section id="contact" className="py-16 md:py-24 gradient-primary-secondary">
+      {/* Invite a low-pressure next step with fast replies and empathy */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,11 +53,11 @@ export function CTAForm() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Ready to Make Your Event Unforgettable?
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-6 tracking-tight">
+            Ready for a Monday full of “wait, how did he do that?”
           </h2>
-          <p className="text-lg md:text-xl text-white/90 mb-4">
-            Join 500+ companies who trusted Grant to deliver world-class entertainment
+          <p className="text-lg md:text-xl text-white/95 mb-6 leading-relaxed max-w-2xl mx-auto">
+            Join 500+ companies who trusted Grant for clean, corporate-friendly fun. Share your details and get a reply within 4 hours.
           </p>
           <div className="inline-flex items-center space-x-2 text-white font-semibold">
             <Zap className="h-5 w-5" />
@@ -80,7 +81,7 @@ export function CTAForm() {
                 Thank You!
               </h3>
               <p className="text-muted-foreground">
-                We'll get back to you within 4 hours with availability and next steps.
+                We&apos;ll get back to you within 4 hours with availability and next steps.
               </p>
             </div>
           ) : (

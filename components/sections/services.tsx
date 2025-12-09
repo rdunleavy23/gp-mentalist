@@ -8,41 +8,42 @@ export function Services() {
   const services = [
     {
       icon: Briefcase,
-      title: "Corporate Events & Conferences",
-      description: "From intimate networking sessions to large-scale conferences, Grant delivers magic that breaks the ice and energizes your team.",
+      title: "Conferences & Company Meetings",
+      description: "Set the tone with a tight, upbeat show that keeps people off email and leaning in.",
       features: [
-        "Close-up magic during cocktail hour",
-        "Stage show for full audience",
-        "Custom tricks with company branding",
-        "Virtual performances for remote teams",
+        "High-energy opener or closer that resets the room",
+        "Walkaround mind reading during receptions or breaks",
+        "Stage show with tasteful audience participation",
+        "Branded reveals that nod to your strategy",
       ],
     },
     {
       icon: Users,
       title: "Executive Retreats & Team Building",
-      description: "Interactive mentalism that sparks conversation, builds connections, and delivers your leadership message in an unforgettable way.",
+      description: "Private, smart mentalism that gets leaders talking and teams connecting without feeling cheesy.",
       features: [
-        "Interactive mentalism demonstrations",
-        "Mind-reading that sparks conversation",
-        "Customized content for leadership messaging",
-        "Intimate groups or large audiences",
+        "Small-group demonstrations that spark honest conversation",
+        "Custom beats tied to your goals or values",
+        "Comfortable pacing for board dinners and offsites",
+        "White-glove coordination so you can simply enjoy",
       ],
     },
     {
       icon: PartyPopper,
-      title: "Special Events & Galas",
-      description: "Elevate award ceremonies, fundraisers, and celebrations with entertainment that keeps guests engaged and talking long after the event ends.",
+      title: "Galas, Awards & Celebrations",
+      description: "Keep guests engaged between courses, awards, and speeches with clean, corporate-safe fun.",
       features: [
-        "Award ceremonies and fundraisers",
-        "Holiday parties and celebrations",
-        "Trade shows and product launches",
-        "Mix-and-mingle entertainment",
+        "Mix-and-mingle astonishment as guests arrive",
+        "Interactive stage moments between segments",
+        "Holiday parties, fundraisers, launches, and galas",
+        "Hybrid or virtual-friendly options available",
       ],
     },
   ]
 
   return (
     <section id="services" className="py-16 md:py-24 bg-gray-50">
+      {/* Offer clear options that feel safe, flexible, and people-friendly */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,11 +52,11 @@ export function Services() {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Performance Types
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+            Three Ways to Elevate Your Event
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Every show is customized to your event goals and audience
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Every performance is tailored to your event goals, audience, and company culture
           </p>
         </motion.div>
 

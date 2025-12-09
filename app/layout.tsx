@@ -1,39 +1,46 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Merriweather } from "next/font/google"
 import "./globals.css"
 
+// Inter: Best-in-class for body text (used by Stripe, Vercel, Linear)
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+})
+
+// Merriweather: Elegant serif for headings (better readability than Playfair)
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-merriweather",
+  weight: ["400", "700", "900"],
 })
 
 export const metadata: Metadata = {
-  title: "Grant Price - Corporate Event Magician & Mentalist",
-  description:
-    "Award-winning mentalist who has amazed 70,000+ people and Fortune 500 companies with mind-blowing performances. Book Grant for your next corporate event, conference, or special occasion.",
-  keywords: [
-    "corporate magician",
-    "corporate event entertainment",
-    "mentalist",
-    "corporate events",
-    "team building entertainment",
-    "conference entertainment",
-    "Dallas magician",
-    "Fort Worth magician",
-  ],
-  authors: [{ name: "Grant Price" }],
+  title: "Grant Price",
+  description: "Corporate event mentalist and mind reader.",
+  // Removed keywords to prevent indexing
+  // Removed authors to reduce discoverability
+  // Minimized Open Graph to prevent social media scraping
   openGraph: {
     type: "website",
-    locale: "en_US",
-    title: "Grant Price - Corporate Event Magician & Mentalist",
-    description:
-      "Award-winning mentalist who has amazed 70,000+ people and Fortune 500 companies",
-    siteName: "Grant Price Entertainment",
+    // No URL, siteName, or detailed description to prevent discovery
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+    noimageindex: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noarchive: true,
+      nosnippet: true,
+      noimageindex: true,
+    },
   },
 }
 
@@ -43,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
+      <body className={`${inter.className} font-sans`}>{children}</body>
     </html>
   )
 }

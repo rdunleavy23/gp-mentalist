@@ -9,25 +9,26 @@ export function HowItWorks() {
     {
       number: "1",
       title: "Share Your Event Details",
-      description: "Tell us about your date, audience size, and event type",
+      description: "Tell us your date, audience, goals, and culture. We&apos;ll reply within 4 hours with availability and a simple plan.",
       icon: Calendar,
     },
     {
       number: "2",
       title: "Customized Performance Plan",
-      description: "Grant designs magic that fits your event goals and company culture",
+      description: "Grant designs moments that fit your agenda—nothing canned, everything paced for your room.",
       icon: Sparkles,
     },
     {
       number: "3",
       title: "Blow Minds, Build Memories",
-      description: "Your team experiences world-class entertainment they'll talk about for years",
+      description: "Your team trades friendly “wait, how?” reactions and shared jokes that carry into Monday.",
       icon: Zap,
     },
   ]
 
   return (
     <section className="py-16 md:py-24 bg-gray-50">
+      {/* Make the process feel easy, responsive, and tailored for planners */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,11 +37,11 @@ export function HowItWorks() {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
             How It Works
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Three simple steps to an unforgettable event
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            From first call to applause—here&apos;s how we keep it smooth and low-stress
           </p>
         </motion.div>
 

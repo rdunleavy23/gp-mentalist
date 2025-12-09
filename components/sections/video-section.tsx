@@ -14,12 +14,11 @@ export function VideoSection() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
             See Grant in Action
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Watch how Grant transformed leading companies' events into unforgettable
-            experiences that teams talk about for years
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Watch how Grant transformed leading companies&apos; events into unforgettable experiences. See the reactions, feel the energy, and understand why teams talk about these performances for years.
           </p>
         </motion.div>
 
@@ -30,22 +29,30 @@ export function VideoSection() {
           viewport={{ once: true }}
           className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900"
         >
-          {/* Video embed placeholder - Replace with actual video */}
-          <div className="relative w-full h-full group cursor-pointer">
-            {/* Thumbnail */}
+          {/* Video embed - Replace YOUR_VIDEO_ID with actual YouTube/Vimeo video ID */}
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&modestbranding=1"
+            title="Grant Price Performance Highlight Reel - Corporate Event Mentalism"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+          />
+          
+          {/* Fallback thumbnail with play button (shown if video fails to load) */}
+          <div className="absolute inset-0 w-full h-full group cursor-pointer hidden">
             <Image
-              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=675&fit=crop"
-              alt="Grant Price performing magic - video thumbnail"
+              src="/images/photos/grant-stage-performance.jpg"
+              alt="Grant Price performing mentalism - video thumbnail"
               fill
               className="object-cover"
               sizes="(max-width: 1280px) 100vw, 1280px"
+              quality={85}
             />
-
-            {/* Play button overlay */}
             <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
               <button
                 aria-label="Play video"
-                className="w-20 h-20 md:w-24 md:h-24 bg-primary hover:bg-primary/90 rounded-full flex items-center justify-center transition-all group-hover:scale-110 shadow-2xl"
+                className="w-20 h-20 md:w-24 md:h-24 bg-primary hover:bg-primary/90 rounded-full flex items-center justify-center transition-all group-hover:scale-110 shadow-2xl min-h-[80px] min-w-[80px]"
               >
                 <svg
                   className="w-8 h-8 md:w-10 md:h-10 text-white ml-1"
@@ -57,15 +64,6 @@ export function VideoSection() {
               </button>
             </div>
           </div>
-
-          {/* Alternative: Actual video embed (uncomment to use) */}
-          {/* <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-            title="Grant Price Performance Highlight Reel"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe> */}
         </motion.div>
 
         {/* Video caption */}
