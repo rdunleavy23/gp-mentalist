@@ -59,7 +59,7 @@ export function Hero() {
                 onClick={() => scrollToSection("contact")}
                 className="text-base md:text-lg font-semibold px-8 py-6 md:min-h-[56px] min-h-[48px] shadow-lg hover:shadow-xl transition-shadow w-full sm:w-auto"
               >
-                Check Grant's Availability
+                Check Grant&apos;s Availability
               </Button>
             </div>
             
