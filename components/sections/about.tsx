@@ -30,20 +30,26 @@ export function About() {
             </p>
 
             <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>Grant fell into a vat of toxic waste when he was 4.</p>
+
               <p>
-                Grant discovered his passion for mentalism at age 12 when his grandfather showed him a simple demonstration of mind reading. That moment sparked a lifelong dedication to the art of mentalism and the psychology of human connection.
+                Okay, not really. His sister taught him a card trick, and he immediately became the most insufferable 4-year-old at the library. (He checked out every magic book. Twice. The librarians still remember him, and not fondly.)
               </p>
 
               <p>
-                What sets Grant apart is his genuine love for corporate entertainment. &ldquo;There&apos;s something powerful about watching executives and professionals experience the impossible,&rdquo; he explains. &ldquo;When I perform at corporate events, I&apos;m not just doing demonstrations—I&apos;m creating shared moments of wonder and connection that teams bond over long after the event ends.&rdquo;
+                People started saying &quot;you should do this for a living&quot; when he was 6. Which is either adorable or a sign that adults will say literally anything to a kid with a deck of cards. Either way, here he is—15+ years later—somehow making corporate audiences forget about their inbox for 45 minutes.
               </p>
 
               <p>
-                Currently performing his acclaimed residency at Live! by Loew&apos;s in Arlington, TX, Grant has perfected the art of reading the room and customizing every show to fit the audience&apos;s energy. With professional liability insurance, backup plans for every scenario, and 15 years of experience, he&apos;s the reliable choice for companies that won&apos;t settle for anything less than extraordinary.
+                What makes Grant different? Honestly, he&apos;s just as confused as you are about how this works. Past clients call him &quot;quick-witted,&quot; &quot;interactive,&quot; and &quot;surprisingly hilarious&quot; (which he chooses to take as a compliment). One client said: &quot;I love how you act so unsure of yourself and then you just nail it!&quot; He&apos;s still workshopping how to feel about that one.
+              </p>
+
+              <p>
+                Grant&apos;s theory: the best corporate events happen when people remember they&apos;re allowed to feel wonder. In jobs where it&apos;s easy to become a little crusty, he brings mystery, laughter, and a reminder that spreadsheets aren&apos;t the only thing worth paying attention to.
               </p>
 
               <p className="text-foreground font-medium">
-                Based in the Dallas/Fort Worth area, Grant serves clients nationwide and is ready to make your next event the one people mention on Monday.
+                When he&apos;s not reading minds (or pretending to), Grant lives in the Dallas/Fort Worth area with his wife and 4 kids. He roasts coffee, builds stuff out of wood, and would love to add sleep to that list if anyone has tips.
               </p>
             </div>
           </motion.div>
@@ -59,10 +65,10 @@ export function About() {
             {/* Professional Photo */}
             <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl mb-6 bg-gray-100">
               <Image
-                src="/images/photos/grant-headshot.jpg"
-                alt="Grant Price - Professional headshot"
+                src="/images/photos/bio-headshot.png"
+                alt="Grant Price smiling in a professional portrait"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 quality={90}
                 onError={(e) => {

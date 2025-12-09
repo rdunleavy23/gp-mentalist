@@ -25,7 +25,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="text-center lg:text-left"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white leading-[1.1] mb-6 tracking-tight">
@@ -60,7 +60,7 @@ export function Hero() {
               <Button
                 size="lg"
                 onClick={() => scrollToSection("contact")}
-                className="text-base md:text-lg font-semibold px-8 py-6 md:min-h-[56px] min-h-[48px] shadow-md hover:shadow-lg transition-transform transition-shadow duration-200 hover:scale-[1.02] w-full sm:w-auto"
+                className="text-base md:text-lg font-semibold px-8 py-6 md:min-h-[56px] min-h-[48px] shadow-md md:hover:shadow-md md:hover:scale-[1.02] transition-transform transition-shadow duration-200 ease-out w-full sm:w-auto active:scale-[0.985]"
               >
                 Check Grant&apos;s calendar
               </Button>
@@ -90,11 +90,11 @@ export function Hero() {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
               <Image
-                src="/images/photos/grant-stage-performance.jpg"
-                alt="Grant Price performing mentalism at a corporate event with engaged audience"
+                src="/images/photos/hero-stage.jpg"
+                alt="Grant Price on stage with a laughing participant during a corporate show"
                 fill
                 priority
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 quality={85}
                 placeholder="blur"

@@ -23,11 +23,11 @@ export function VideoSection() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900"
+          className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900 md:transition-all md:duration-200 md:ease-out md:hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)]"
         >
           {/* Video embed - Replace YOUR_VIDEO_ID with actual YouTube/Vimeo video ID */}
           <iframe
@@ -45,14 +45,14 @@ export function VideoSection() {
               src="/images/photos/grant-stage-performance.jpg"
               alt="Grant Price performing mentalism - video thumbnail"
               fill
-              className="object-cover"
+              className="object-cover md:transition-all md:duration-150 md:ease-out md:group-hover:scale-[1.01]"
               sizes="(max-width: 1280px) 100vw, 1280px"
               quality={85}
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
               <button
                 aria-label="Play video"
-                className="w-20 h-20 md:w-24 md:h-24 bg-primary hover:bg-primary/90 rounded-full flex items-center justify-center transition-all group-hover:scale-110 shadow-2xl min-h-[80px] min-w-[80px]"
+                className="w-20 h-20 md:w-24 md:h-24 bg-primary hover:bg-primary/90 rounded-full flex items-center justify-center transition-all md:group-hover:scale-[1.05] shadow-2xl min-h-[80px] min-w-[80px] active:opacity-90"
               >
                 <svg
                   className="w-8 h-8 md:w-10 md:h-10 text-white ml-1"

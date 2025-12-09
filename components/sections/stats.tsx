@@ -40,7 +40,7 @@ export function Stats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
+                className="text-center md:hover:scale-[1.015] md:hover:-translate-y-[2px] md:transition-all md:duration-200 md:ease-out md:shadow-md md:hover:shadow-lg active:opacity-90"
               >
                 <Icon className="h-10 w-10 md:h-12 md:w-12 text-white mx-auto mb-3 opacity-90" />
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">

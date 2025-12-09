@@ -70,10 +70,10 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 1, 0.5, 1] }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                className="h-full"
+                whileHover={{ scale: 1.015, y: -2 }}
+                className="h-full md:hover:shadow-lg md:transition-all md:duration-200 md:ease-out"
               >
-                <Card className="h-full hover:shadow-xl transition-shadow">
+                <Card className="h-full md:shadow-md md:hover:shadow-lg transition-all duration-200 ease-out active:opacity-90">
                   <CardHeader>
                     <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                       <Icon className="h-7 w-7 text-primary" />

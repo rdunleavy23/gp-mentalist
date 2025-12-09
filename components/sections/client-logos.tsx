@@ -96,7 +96,7 @@ function LogoItem({ client, index }: { client: { name: string; image: string; wi
               alt={`${client.name} logo`}
               width={client.width}
               height={client.height}
-              className="object-contain w-auto h-full opacity-60 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
+              className="object-contain w-auto h-full opacity-80 md:opacity-80 md:hover:opacity-100 md:hover:brightness-110 transition-all duration-150 ease-out"
               style={{ width: 'auto', height: '100%' }}
               onError={() => {
                 console.error('Image load error:', client.image);

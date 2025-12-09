@@ -47,9 +47,9 @@ export function CTAForm() {
       {/* Invite a low-pressure next step with fast replies and empathy */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3, ease: "easeOut", delay: 0.08 }}
           viewport={{ once: true }}
           className="text-center mb-10"
         >
@@ -66,9 +66,9 @@ export function CTAForm() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.3, ease: "easeOut", delay: 0.16 }}
           viewport={{ once: true }}
           className="bg-white rounded-2xl shadow-2xl p-8 md:p-12"
         >
