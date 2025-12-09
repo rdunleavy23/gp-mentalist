@@ -33,6 +33,7 @@ export function CTAForm() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    setValue,
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -173,14 +174,11 @@ export function CTAForm() {
                   onChange={(token) => {
                     const value = token ?? ""
                     setRecaptchaToken(value)
-                    // Manually set value for react-hook-form
-                    // @ts-expect-error register handles this field
-                    register("recaptchaToken").onChange({ target: { value } })
+                    setValue("recaptchaToken", value, { shouldValidate: true })
                   }}
                   onExpired={() => {
                     setRecaptchaToken("")
-                    // @ts-expect-error register handles this field
-                    register("recaptchaToken").onChange({ target: { value: "" } })
+                    setValue("recaptchaToken", "", { shouldValidate: true })
                   }}
                 />
               </div>
