@@ -26,11 +26,7 @@ export function Navigation() {
     }
   }
 
-  const navLinks = [
-    { label: "Services", href: "services" },
-    { label: "Client Logos", href: "clients" },
-    { label: "Testimonials", href: "testimonials" },
-  ]
+  const navLinks: Array<{ label: string; href: string }> = []
 
   return (
     <nav

@@ -28,10 +28,6 @@ export function Hero() {
               Your Team Will Still Be Talking About This on Monday
             </h1>
 
-            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-              Grant Price delivers corporate-clean mentalism that gets executives leaning in, laughing together, and swapping "how did he do that?" stories for weeks.
-            </p>
-
             {/* Logo Bar - Top Premium Clients */}
             <div className="mb-8">
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8 mb-4">
@@ -71,12 +67,6 @@ export function Hero() {
               >
                 Check availability
               </Button>
-              <button
-                onClick={() => scrollToSection("video")}
-                className="text-secondary hover:text-secondary/80 underline text-base md:text-lg font-medium transition-colors"
-              >
-                Watch 60-second demo →
-              </button>
             </div>
             <p className="mt-4 text-sm text-white/75 text-center lg:text-left">
               Reply within 4 hours • 500+ events • 15 years experience
@@ -93,15 +83,14 @@ export function Hero() {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
               <Image
-                src="/images/photos/grant-stage-performance.jpg"
+                src="/images/photos/hero-stage.jpg"
                 alt="Grant Price performing mentalism at a corporate event with engaged audience"
                 fill
                 priority
                 className="object-cover"
+                style={{ objectPosition: "50% 38%" }}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 quality={85}
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 onError={(e) => {
                   const target = e.target as HTMLImageElement
                   target.style.display = 'none'

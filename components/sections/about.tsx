@@ -25,25 +25,29 @@ export function About() {
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-3">
               Meet Grant Price
             </h2>
-            <p className="text-xl text-primary font-semibold mb-6">
-              Mentalist, Mind Reader, Memory Maker
-            </p>
-
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Grant discovered his passion for mentalism at age 12 when his grandfather showed him a simple demonstration of mind reading. That moment sparked a lifelong dedication to the art of mentalism and the psychology of human connection.
+                Grant fell into a vat of toxic waste when he was 4.
               </p>
 
               <p>
-                What sets Grant apart is his genuine love for corporate entertainment. &ldquo;There&apos;s something powerful about watching executives and professionals experience the impossible,&rdquo; he explains. &ldquo;When I perform at corporate events, I&apos;m not just doing demonstrations—I&apos;m creating shared moments of wonder and connection that teams bond over long after the event ends.&rdquo;
+                Okay, not really. His sister taught him a card trick, and he immediately became the most insufferable 4-year-old at the library. (He checked out every magic book. Twice. The librarians still remember him, and not fondly.)
               </p>
 
               <p>
-                Currently performing his acclaimed residency at Live! by Loew&apos;s in Arlington, TX, Grant has perfected the art of reading the room and customizing every show to fit the audience&apos;s energy. With backup plans for every scenario and 15 years of experience, he&apos;s the reliable choice for companies that won&apos;t settle for anything less than extraordinary.
+                People started saying &ldquo;you should do this for a living&rdquo; when he was 6. Which is either adorable or a sign that adults will say literally anything to a kid with a deck of cards. Either way, here he is&mdash;15+ years later&mdash;somehow making corporate audiences forget about their inbox for 45 minutes.
               </p>
 
-              <p className="text-foreground font-medium">
-                Based in the Dallas/Fort Worth area, Grant serves clients nationwide and is ready to make your next event the one people mention on Monday.
+              <p>
+                What makes Grant different? Honestly, he&apos;s just as confused as you are about how this works. Past clients call him &ldquo;quick-witted,&rdquo; &ldquo;interactive,&rdquo; and &ldquo;surprisingly hilarious&rdquo; (which he chooses to take as a compliment).
+              </p>
+
+              <p>
+                Grant&apos;s theory: the best corporate events happen when people remember they&apos;re allowed to feel wonder. In jobs where it&apos;s easy to become a little crusty, he brings mystery, laughter, and a reminder that spreadsheets aren&apos;t the only thing worth paying attention to.
+              </p>
+
+              <p>
+                When he&apos;s not reading minds (or pretending to), Grant lives in the Dallas/Fort Worth area with his wife and 4 kids. He roasts coffee, builds stuff out of wood, and would love to add sleep to that list if anyone has tips.
               </p>
             </div>
           </motion.div>
@@ -57,9 +61,9 @@ export function About() {
             className="lg:col-span-2"
           >
             {/* Professional Photo */}
-            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl mb-6 bg-gray-100">
+            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl mb-6 bg-gray-100 transition-transform duration-300 ease-out md:hover:scale-[1.01] md:hover:shadow-[0_25px_60px_-25px_rgba(0,0,0,0.35)]">
               <Image
-                src="/images/photos/grant-headshot.jpg"
+                src="/images/photos/bio-headshot.avif"
                 alt="Grant Price - Professional headshot"
                 fill
                 className="object-cover"

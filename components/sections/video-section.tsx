@@ -3,83 +3,67 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 
-export function VideoSection() {
-  const photos = [
-    {
-      src: "/images/photos/grant-stage-performance.jpg",
-      alt: "Grant Price performing at corporate conference with engaged audience",
-      caption: "Conference keynote",
-    },
-    {
-      src: "/images/photos/grant-executive-event.jpg",
-      alt: "Grant Price at executive retreat with small group interaction",
-      caption: "Executive retreat",
-    },
-    {
-      src: "/images/photos/grant-gala-event.jpg",
-      alt: "Grant Price performing at corporate gala with audience reactions",
-      caption: "Awards gala",
-    },
+export function ReactionSection() {
+  const reactions = [
+    { src: "/images/reactions/reaction-1.jpg", alt: "Guest reacts with surprise during Grant's corporate performance." },
+    { src: "/images/reactions/reaction-2.jpg", alt: "Audience laughing together during Grant's set at a corporate event." },
+    { src: "/images/reactions/reaction-3.jpg", alt: "Executive smiling and leaning in while Grant performs close-up." },
+    { src: "/images/reactions/reaction-4.jpg", alt: "Group reacting with surprise and smiles during a lobby performance." },
+    { src: "/images/reactions/reaction-5.jpg", alt: "Guests laughing together during Grant’s set at a corporate reception." },
+    { src: "/images/reactions/reaction-6.jpg", alt: "Group smiling and chatting as Grant performs close-up for the table." },
+    { src: "/images/reactions/reaction-7.jpg", alt: "Guests grinning and leaning in during Grant's close-up performance." },
   ]
 
+  const visibleReactions = reactions.slice(0, 6)
+
   return (
-    <section id="video" className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+    <section id="reactions" className="py-12 md:py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.figure
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="mx-auto max-w-3xl text-center mb-8 md:mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
-            See Grant in Action
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Real moments from conferences, retreats, and galas—see the energy, reactions, and corporate-clean style that teams remember.
-          </p>
-        </motion.div>
+          <blockquote className="space-y-3">
+            <p className="text-2xl md:text-3xl font-serif font-bold text-foreground leading-snug">
+              “As much as I love watching Grant, watching the{" "}
+              <span className="underline underline-offset-4 decoration-2 decoration-primary italic">
+                crowd’s faces
+              </span>{" "}
+              was my favorite part. Can’t wait to use him again!”
+            </p>
+          </blockquote>
+          <figcaption className="text-sm md:text-base text-muted-foreground mt-2">
+            — Andrea Hug, Senior Event Planner, AVP, Baird
+          </figcaption>
+        </motion.figure>
 
-        {/* Photo Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {photos.map((photo, index) => (
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+          {visibleReactions.map((reaction, index) => (
             <motion.div
-              key={photo.caption}
-              initial={{ opacity: 0, y: 20 }}
+              key={reaction.src}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.35, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="group"
+              className="relative overflow-hidden rounded-xl bg-gray-100 shadow-sm aspect-[3/4] md:aspect-[4/3] transition-transform duration-300 ease-out md:hover:scale-[1.02] md:hover:shadow-md md:hover:brightness-105"
             >
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-100 hover:shadow-2xl transition-shadow">
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  quality={85}
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement
-                    target.style.display = 'none'
-                    const fallback = target.parentElement?.querySelector('.photo-fallback')
-                    if (fallback) (fallback as HTMLElement).style.display = 'flex'
-                  }}
-                />
-                <div className="photo-fallback hidden absolute inset-0 items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
-                  <div className="text-center px-4">
-                    <p className="text-foreground font-serif text-lg font-bold">{photo.caption}</p>
-                    <p className="text-muted-foreground text-sm mt-1">Photo coming soon</p>
-                  </div>
-                </div>
-                {/* Caption overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p className="text-white font-medium text-sm md:text-base">{photo.caption}</p>
-                </div>
-              </div>
+              <Image
+                src={reaction.src}
+                alt={reaction.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+              />
             </motion.div>
           ))}
         </div>
+
+        <p className="text-center text-sm md:text-base text-muted-foreground mt-4 md:mt-5">
+          A few favorite faces from recent corporate events.
+        </p>
       </div>
     </section>
   )

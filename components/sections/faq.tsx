@@ -11,44 +11,119 @@ import {
 export function FAQ() {
   const faqs = [
     {
-      question: "So… mentalism isn’t just fancy magic tricks?",
-      answer:
-        "Magic hides things. Mentalism exposes them. I lean on psychology, pattern reads, and a little playful misdirection to predict choices and connect it to your message. It’s corporate-safe, clean, and built for smart rooms—no doves, just eyebrow raises.",
+      question: "Is your material appropriate for executive and corporate audiences?",
+      answer: (
+        <div className="space-y-2">
+          <p>
+            Absolutely. My show is designed for executives, professionals, and mixed company crowds. No embarrassing moments, no edgy humor, no awkward volunteer bits. Just clean, smart mentalism that gets people leaning in and laughing together without ever putting anyone on the spot.
+          </p>
+          <p>My rule of thumb: if it wouldn’t fly in your boardroom, it won’t be in my show.</p>
+        </div>
+      ),
     },
     {
-      question: "Can you bake our strategy or theme into the mind games?",
-      answer:
-        "Absolutely. Share your KPIs, themes, or that inside joke from the last town hall, and I’ll weave them into predictions and callbacks so it sounds like your company. You’ll see the plan ahead of time—no surprises, no cringe.",
+      question: "What happens if something goes wrong or plans change?",
+      answer: (
+        <div className="space-y-3">
+          <p>
+            Corporate events have moving parts — I get it. If timing shifts, AV needs a minute, or your agenda takes a surprise turn, I roll with it.
+          </p>
+          <div>
+            <p>I always build in:</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>buffer time</li>
+              <li>backup cues</li>
+              <li>multiple ways to shorten or stretch segments</li>
+              <li>a “keep-everyone-calm” attitude</li>
+            </ul>
+          </div>
+          <p>My job is to make your job easier, not add stress.</p>
+        </div>
+      ),
     },
     {
-      question: "What types of events do you perform at?",
-      answer:
-        "I focus on corporate events: conferences, executive retreats, holiday parties, trade shows, award ceremonies, team building, and virtual shows. Groups from 20 to 2,000—I'll size the material to the room. Always clean, always corporate-safe.",
+      question: "Do you carry liability insurance and backup equipment?",
+      answer: (
+        <div className="space-y-2">
+          <p>
+            Yes on both. I carry full professional liability insurance and travel with backup gear for anything that could reasonably (or unreasonably) go sideways.
+          </p>
+          <p>It’s the unglamorous part of performing — but it’s also the part that lets you relax.</p>
+        </div>
+      ),
     },
     {
-      question: "How far in advance should I book?",
-      answer:
-        "If you can, book 3–6 months out (peak seasons: Nov–Dec, Mar–May). I’ll confirm quickly and do my best on short notice. If a date is tight, I’ll give you options and clear expectations—no pressure.",
+      question: "Can you customize the performance to our company, theme, or culture?",
+      answer: (
+        <div className="space-y-3">
+          <p>
+            Definitely. I love weaving your message, values, or event theme into what I do. The show stays smart and clean, but the details get tailored for your group so it feels like it was built for your room.
+          </p>
+          <div>
+            <p>Think:</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>custom reveals</li>
+              <li>personalized moments</li>
+              <li>subtle tie-ins to your strategy or goals</li>
+            </ul>
+          </div>
+        </div>
+      ),
     },
     {
-      question: "Do you customize performances for our company?",
-      answer:
-        "Yes. Every show is tailored to your audience, goals, and culture. I’ll incorporate your language, products, or inside jokes, and share the beats in advance. Nothing canned—everything paced to your room.",
+      question: "What types of corporate events do you perform at?",
+      answer: (
+        <div className="space-y-2">
+          <p>Most of my work falls into these categories:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>conferences &amp; company meetings</li>
+            <li>team offsites &amp; leadership retreats</li>
+            <li>awards nights &amp; galas</li>
+            <li>client appreciation events</li>
+            <li>holiday parties</li>
+            <li>executive dinners (small-group mind-reading is a crowd favorite)</li>
+          </ul>
+          <p>If your event involves adults who enjoy smiling and having their minds gently scrambled, I’m your guy.</p>
+        </div>
+      ),
     },
     {
-      question: "What's included in your fee?",
-      answer:
-        "Performance, all props/gear, travel within 100 miles of DFW, and a pre-event call to tailor the show. Everything is on contract, and I bring backups so you're covered. Outside DFW, travel is at cost.",
+      question: "How far in advance should we book?",
+      answer: (
+        <div className="space-y-2">
+          <p>
+            Most companies book 2–4 months ahead, but I always do my best to accommodate tight timelines. If you have a date in mind, reach out — even if it’s close.
+          </p>
+          <p>My calendar moves fast, but there’s always a chance I have a window that lines up perfectly with your event.</p>
+        </div>
+      ),
     },
     {
-      question: "Can you perform virtually?",
-      answer:
-        "Yes—Zoom, Teams, and hybrid events. The virtual show is built for screen: interactive mind reading, participation, and custom beats for your team. Same corporate-safe approach, paced for remote attention spans.",
+      question: "What’s included in your fee?",
+      answer: (
+        <div className="space-y-2">
+          <p>Everything you need for a smooth, successful show:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>performance time</li>
+            <li>all props and materials</li>
+            <li>travel (if we include it in the quote)</li>
+            <li>coordination with your team + AV</li>
+            <li>custom elements tailored to your audience</li>
+          </ul>
+          <p>No surprise add-ons. No “premium upgrades.” Just a clean, straightforward fee for a polished corporate experience.</p>
+        </div>
+      ),
     },
     {
-      question: "What if something goes wrong?",
-      answer:
-        "In 15 years, I've never missed a show. I arrive early, work on contract, and travel with backups (sound, mics, redundancies). If something hiccups, I have contingencies and keep you in the loop—no surprises.",
+      question: "How do you work with AV teams?",
+      answer: (
+        <div className="space-y-2">
+          <p>
+            I love AV teams. Truly. They’re the heroes of every event. I send specs ahead of time, arrive early, check cues with your crew, and make adjustments on the fly so everything runs smoothly. I speak “AV,” which makes life easier for everyone.
+          </p>
+          <p>Happy AV team = happy planner = great show.</p>
+        </div>
+      ),
     },
   ]
 
