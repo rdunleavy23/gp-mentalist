@@ -44,7 +44,7 @@ export function HowItWorks() {
             How It Works
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-[70ch] mx-auto">
-            From first call to applause—here's how we keep it smooth and low-stress
+            From first call to applause—here&apos;s how we keep it smooth and low-stress
           </p>
         </motion.div>
 
