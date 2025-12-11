@@ -29,7 +29,7 @@ export function Hero() {
             </h1>
 
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-              Grant Price delivers corporate-clean mentalism that gets executives leaning in, laughing together, and swapping "how did he do that?" stories for weeks.
+              Grant Price delivers corporate-clean mentalism that gets executives leaning in, laughing together, and swapping &ldquo;how did he do that?&rdquo; stories for weeks.
             </p>
 
             {/* Logo Bar - Top Premium Clients */}
