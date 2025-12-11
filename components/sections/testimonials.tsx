@@ -78,7 +78,7 @@ export function Testimonials() {
             onClick={() => scrollToSection("contact")}
             className="text-base md:text-lg font-semibold px-8 py-6"
           >
-            Join these teams—check your date
+            Join these teams—Get Your Instant Quote
           </Button>
           <p className="mt-3 text-sm text-muted-foreground">
             Reply within 4 hours • No pressure, just options

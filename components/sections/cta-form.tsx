@@ -61,7 +61,7 @@ export function CTAForm() {
           </p>
           <div className="inline-flex items-center space-x-2 text-secondary-foreground font-semibold">
             <Zap className="h-5 w-5" />
-            <span>Limited availability this quarter—check your date</span>
+            <span>Limited availability this quarter—check availability</span>
           </div>
         </motion.div>
 
@@ -166,7 +166,7 @@ export function CTAForm() {
                   disabled={isSubmitting}
                   className="w-full text-lg font-semibold py-6"
                 >
-                  {isSubmitting ? "Checking calendar..." : "Check a date"}
+                  {isSubmitting ? "Checking calendar..." : "Get Your Instant Quote"}
                 </Button>
               </div>
 
