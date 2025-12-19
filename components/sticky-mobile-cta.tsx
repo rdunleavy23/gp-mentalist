@@ -44,7 +44,7 @@ export function StickyMobileCTA() {
               size="lg"
           className="flex-1 min-h-[48px] text-base font-semibold"
             >
-              Get Your Instant Quote
+              Check Availability
             </Button>
             <button
           onClick={() => {

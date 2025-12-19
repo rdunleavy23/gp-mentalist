@@ -41,25 +41,30 @@ export function Hero() {
                   { name: "Texas Health", image: "/images/logos/texas-health-resources.png" },
                   { name: "Dallas Cowboys", image: "/images/logos/dallas-cowboys.png" },
                   { name: "US Air Force", image: "/images/logos/us-air-force.svg" },
-                ].map((client) => (
-                  <div key={client.name} className="relative h-8 md:h-10 w-auto opacity-80 hover:opacity-100 transition-opacity">
-                    <Image
-                      src={client.image}
-                      alt={`${client.name} logo`}
-                      width={120}
-                      height={40}
-                      className="object-contain h-full w-auto brightness-0 invert"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement
-                        target.style.display = 'none'
-                      }}
-                    />
-                  </div>
-                ))}
+                ].map((client) => {
+                  // Dallas Cowboys logo has a background, so handle it differently
+                  const needsSpecialHandling = client.name === "Dallas Cowboys"
+                  return (
+                    <div key={client.name} className="relative h-8 md:h-10 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                      <Image
+                        src={client.image}
+                        alt={`${client.name} logo`}
+                        width={120}
+                        height={40}
+                        className={`object-contain h-full w-auto ${needsSpecialHandling ? '' : 'brightness-0 invert'}`}
+                        style={{ 
+                          backgroundColor: 'transparent',
+                          mixBlendMode: needsSpecialHandling ? 'normal' : 'normal'
+                        }}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement
+                          target.style.display = 'none'
+                        }}
+                      />
+                    </div>
+                  )
+                })}
               </div>
-              <p className="text-sm md:text-base text-white/75 text-center lg:text-left">
-                Trusted by 20+ companies including Southwest, Chick-fil-A, Ferrari, Luke Bryan, and Fortune 500 brands
-              </p>
             </div>
 
             {/* Primary CTA */}
@@ -69,18 +74,9 @@ export function Hero() {
                 onClick={() => scrollToSection("contact")}
                 className="text-base md:text-lg font-semibold px-8 py-6 md:min-h-[56px] min-h-[48px] shadow-md hover:shadow-lg transition-transform transition-shadow duration-200 hover:scale-[1.02] w-full sm:w-auto"
               >
-                Get Your Instant Quote
+                Check Availability
               </Button>
-              <button
-                onClick={() => scrollToSection("video")}
-                className="text-secondary hover:text-secondary/80 underline text-base md:text-lg font-medium transition-colors"
-              >
-                Watch 60-second demo →
-              </button>
             </div>
-            <p className="mt-4 text-sm text-white/75 text-center lg:text-left">
-              Reply within 4 hours • 500+ events • 15 years experience
-            </p>
           </motion.div>
 
           {/* Right - Hero Image/Video */}
@@ -91,18 +87,19 @@ export function Hero() {
             transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
+            <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
               <Image
-                src="/images/photos/grant-stage-performance.jpg"
+                src="/images/photos/hero-stage.jpg"
                 alt="Grant Price performing mentalism at a corporate event with engaged audience"
                 fill
                 priority
                 className="object-cover"
+                style={{ objectPosition: 'center 35%' }}
                 sizes="(max-width: 768px) 100vw, 50vw"
-                quality={85}
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                quality={90}
+                unoptimized={true}
                 onError={(e) => {
+                  console.error('Image failed to load:', e)
                   const target = e.target as HTMLImageElement
                   target.style.display = 'none'
                   const fallback = target.parentElement?.querySelector('.photo-fallback')

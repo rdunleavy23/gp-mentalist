@@ -66,7 +66,7 @@ export function Navigation() {
               onClick={() => scrollToSection("contact")}
               className="font-semibold"
             >
-              Get Your Instant Quote
+              Check Availability
             </Button>
           </div>
 
@@ -104,7 +104,7 @@ export function Navigation() {
               onClick={() => scrollToSection("contact")}
               className="w-full mt-2"
             >
-              Get Your Instant Quote
+              Check Availability
             </Button>
           </div>
         </div>

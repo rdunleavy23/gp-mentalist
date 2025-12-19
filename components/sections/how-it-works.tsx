@@ -149,7 +149,7 @@ export function HowItWorks() {
             onClick={() => scrollToSection("contact")}
             className="text-base md:text-lg font-semibold px-8 py-6"
           >
-            Ready to start? Get Your Instant Quote
+            Check Availability
           </Button>
           <p className="mt-3 text-sm text-muted-foreground">
             Quick reply, no pressure—just availability and options

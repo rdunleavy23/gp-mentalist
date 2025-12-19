@@ -166,7 +166,7 @@ export function CTAForm() {
                   disabled={isSubmitting}
                   className="w-full text-lg font-semibold py-6"
                 >
-                  {isSubmitting ? "Checking calendar..." : "Get Your Instant Quote"}
+                  {isSubmitting ? "Checking calendar..." : "Check Availability"}
                 </Button>
               </div>
 
