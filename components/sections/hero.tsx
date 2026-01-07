@@ -25,7 +25,7 @@ export function Hero() {
             className="text-center lg:text-left"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white leading-[1.1] mb-6 tracking-tight">
-              Your Team Will Still Be Talking About This on Monday
+              Interactive Mind-Reading for Upscale Events
             </h1>
 
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">

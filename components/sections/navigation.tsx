@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -38,13 +39,22 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-xl md:text-2xl font-bold text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
+          <a
+            href="https://magiciangrantprice.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
             aria-label="Grant Price - Home"
           >
-            Grant Price
-          </button>
+            <Image
+              src="/images/logos/grant-price-logo.svg"
+              alt="Grant Price"
+              width={180}
+              height={36}
+              className="h-8 w-auto md:h-9 md:w-[180px]"
+              priority
+            />
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
