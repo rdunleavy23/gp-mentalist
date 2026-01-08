@@ -23,10 +23,16 @@ export function StickyMobileCTA() {
   const scrollToContact = () => {
     const element = document.getElementById("contact")
     if (element) {
+      // Set hash for auto-open logic
+      window.history.pushState(null, "", "#contact")
       element.scrollIntoView({ behavior: "smooth" })
-    setIsDismissed(true)
-    setIsVisible(false)
-  }
+      setIsDismissed(true)
+      setIsVisible(false)
+      // Dispatch custom event to open accordion
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent("openContactAccordion"))
+      }, 500) // Small delay to ensure scroll completes
+    }
   }
 
   if (!isVisible) return null

@@ -9,7 +9,15 @@ export function Testimonials() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
+      // Set hash for auto-open logic
+      window.history.pushState(null, "", `#${id}`)
       element.scrollIntoView({ behavior: "smooth" })
+      // Dispatch custom event to open accordion if scrolling to contact
+      if (id === "contact") {
+        setTimeout(() => {
+          window.dispatchEvent(new CustomEvent("openContactAccordion"))
+        }, 500) // Small delay to ensure scroll completes
+      }
     }
   }
   // Transform reviews to testimonial format

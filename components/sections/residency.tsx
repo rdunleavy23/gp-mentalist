@@ -43,7 +43,7 @@ export function Residency() {
                     asChild
                   >
                     <a
-                      href="#"
+                      href="https://magiciangrantprice.com/mental-magic/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center space-x-2"

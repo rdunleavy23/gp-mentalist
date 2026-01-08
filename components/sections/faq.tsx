@@ -17,16 +17,16 @@ export function FAQ() {
           <p>
             Absolutely. My show is designed for executives, professionals, and mixed company crowds. No embarrassing moments, no edgy humor, no awkward volunteer bits. Just clean, smart mentalism that gets people leaning in and laughing together without ever putting anyone on the spot.
           </p>
-          <p>My rule of thumb: if it wouldn’t fly in your boardroom, it won’t be in my show.</p>
+          <p>My rule of thumb: if it wouldn't fly in your office, it won't be in my show.</p>
         </div>
       ),
     },
     {
-      question: "What happens if something goes wrong or plans change?",
+      question: "What happens if the event's schedule changes?",
       answer: (
         <div className="space-y-3">
           <p>
-            Corporate events have moving parts — I get it. If timing shifts, AV needs a minute, or your agenda takes a surprise turn, I roll with it.
+            Corporate events have moving parts — I get it. If timing shifts, the AV team needs a minute, or your agenda takes a surprise turn, I roll with it.
           </p>
           <div>
             <p>I always build in:</p>
@@ -34,21 +34,10 @@ export function FAQ() {
               <li>buffer time</li>
               <li>backup cues</li>
               <li>multiple ways to shorten or stretch segments</li>
-              <li>a “keep-everyone-calm” attitude</li>
+              <li>a "keep-everyone-calm" attitude</li>
             </ul>
           </div>
-          <p>My job is to make your job easier, not add stress.</p>
-        </div>
-      ),
-    },
-    {
-      question: "Do you carry liability insurance and backup equipment?",
-      answer: (
-        <div className="space-y-2">
-          <p>
-            Yes on both. I carry full professional liability insurance and travel with backup gear for anything that could reasonably (or unreasonably) go sideways.
-          </p>
-          <p>It’s the unglamorous part of performing — but it’s also the part that lets you relax.</p>
+          <p>I&apos;m there to make your life easier for the <em>entire</em> event.</p>
         </div>
       ),
     },
@@ -67,23 +56,6 @@ export function FAQ() {
               <li>subtle tie-ins to your strategy or goals</li>
             </ul>
           </div>
-        </div>
-      ),
-    },
-    {
-      question: "What types of corporate events do you perform at?",
-      answer: (
-        <div className="space-y-2">
-          <p>Most of my work falls into these categories:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>conferences &amp; company meetings</li>
-            <li>team offsites &amp; leadership retreats</li>
-            <li>awards nights &amp; galas</li>
-            <li>client appreciation events</li>
-            <li>holiday parties</li>
-            <li>executive dinners (small-group mind-reading is a crowd favorite)</li>
-          </ul>
-          <p>If your event involves adults who enjoy smiling and having their minds gently scrambled, I’m your guy.</p>
         </div>
       ),
     },

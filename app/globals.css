@@ -116,3 +116,41 @@
     }
   }
 }
+
+/* Honeybook Form Styles */
+@layer components {
+  /* Ensure Honeybook calendar picker icon displays */
+  .hb-p-6482483948520f1939f63594-3 input[type="date"]::-webkit-calendar-picker-indicator,
+  .hb-p-6482483948520f1939f63594-3 input[type="date"]::-webkit-inner-spin-button {
+    display: block !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
+    position: absolute !important;
+    right: 12px !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Firefox date input icon */
+  .hb-p-6482483948520f1939f63594-3 input[type="date"]::-moz-calendar-picker-indicator {
+    display: block !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
+  }
+
+  /* Ensure proper styling for Honeybook form container */
+  .hb-p-6482483948520f1939f63594-3 {
+    min-height: 600px;
+  }
+
+  /* Ensure all form inputs have proper spacing for icons */
+  .hb-p-6482483948520f1939f63594-3 input {
+    padding-right: 40px !important;
+  }
+
+  /* Make sure iframe content is visible */
+  iframe[src*="honeybook.com"] {
+    background: white;
+    display: block;
+  }
+}
