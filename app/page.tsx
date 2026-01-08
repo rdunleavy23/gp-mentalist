@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/sections/navigation"
 import { Hero } from "@/components/sections/hero"
 import { ClientLogos } from "@/components/sections/client-logos"
+import { Services } from "@/components/sections/services"
 import { HowItWorks } from "@/components/sections/how-it-works"
 import { ReactionSection } from "@/components/sections/video-section"
 import { Testimonials } from "@/components/sections/testimonials"
@@ -8,7 +9,6 @@ import { Stats } from "@/components/sections/stats"
 import { About } from "@/components/sections/about"
 import { Residency } from "@/components/sections/residency"
 import { FAQ } from "@/components/sections/faq"
-import { CTAForm } from "@/components/sections/cta-form"
 import { StickyMobileCTA } from "@/components/sticky-mobile-cta"
 
 export default function Home() {
@@ -17,14 +17,14 @@ export default function Home() {
       <Navigation />
       <Hero />
       <ClientLogos />
-      <HowItWorks />
+      <Services />
       <ReactionSection />
       <Testimonials />
       <Stats />
       <About />
       <Residency />
       <FAQ />
-      <CTAForm />
+      <HowItWorks />
       <StickyMobileCTA />
     </main>
   )

@@ -1,21 +1,21 @@
 import type { Metadata } from "next"
-import { Libre_Baskerville, Rubik } from "next/font/google"
+import { Rubik, Inter } from "next/font/google"
 import "./globals.css"
 
-// Rubik: Warm, approachable body font (weights 300-700)
+// Rubik: Friendly, rounded headings (weights 600-800)
 const rubik = Rubik({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-rubik",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["600", "700", "800"],
 })
 
-// Libre Baskerville: Classic serif for headings (weights 400, 700)
-const libreBaskerville = Libre_Baskerville({
+// Inter: Clean, professional body text (weights 300-600)
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-libre-baskerville",
-  weight: ["400", "700"],
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600"],
 })
 
 export const metadata: Metadata = {
@@ -50,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${rubik.variable} ${libreBaskerville.variable}`}>
-      <body className={`${rubik.className} font-sans`}>{children}</body>
+    <html lang="en" className={`${rubik.variable} ${inter.variable}`}>
+      <body className={`${inter.className} font-sans`}>{children}</body>
     </html>
   )
 }

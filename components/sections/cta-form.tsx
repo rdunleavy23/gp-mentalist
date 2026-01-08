@@ -2,8 +2,6 @@
 
 import { useState, useEffect, useRef } from "react"
 import Script from "next/script"
-import { motion } from "framer-motion"
-import { Zap, Shield, Clock, Check } from "lucide-react"
 import {
   Accordion,
   AccordionContent,
@@ -23,7 +21,7 @@ export function CTAForm() {
     undefined
   )
   const [isScriptLoaded, setIsScriptLoaded] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   // Listen for custom event to open accordion
   useEffect(() => {
@@ -115,40 +113,7 @@ export function CTAForm() {
         }}
       />
       
-      <section
-        id="contact"
-        ref={sectionRef}
-        className="py-16 md:py-24 bg-white"
-      >
-        {/* Invite a low-pressure next step with fast replies and empathy */}
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-10"
-        >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6 tracking-tight">
-            Want a Monday full of "wait… how did he do that?"
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed max-w-2xl mx-auto">
-            Join 500+ teams who trust Grant for clean, corporate-friendly fun.
-            Share a date, get a no-pressure quote, and hear back quickly.
-          </p>
-          <div className="inline-flex items-center space-x-2 text-secondary-foreground font-semibold">
-            <Zap className="h-5 w-5" />
-            <span>Limited availability this quarter—check availability</span>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-2xl shadow-2xl p-8 md:p-12"
-        >
+      <div id="contact" ref={sectionRef}>
           <Accordion
             type="single"
             collapsible
@@ -157,19 +122,21 @@ export function CTAForm() {
             className="w-full"
           >
             <AccordionItem value="honeybook-form" className="border-none">
-              <AccordionTrigger
-                className={cn(
-                  "flex flex-1 items-center justify-between",
-                  "w-full text-lg font-semibold px-6 py-6 rounded-md",
-                  "bg-primary text-primary-foreground hover:bg-primary/90",
-                  "hover:no-underline transition-colors",
-                  "min-h-[56px] md:min-h-[56px]",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                  "[&[data-state=open]>svg]:rotate-180"
-                )}
-              >
-                Check Availability
-              </AccordionTrigger>
+              <div className="max-w-md mx-auto">
+                <AccordionTrigger
+                  className={cn(
+                    "inline-flex items-center justify-center whitespace-nowrap rounded-md",
+                    "w-full h-12 px-8 text-base min-h-[48px] md:h-14 md:px-10 md:text-lg md:min-h-[56px]",
+                    "font-bold ring-offset-background transition-colors",
+                    "bg-primary text-primary-foreground hover:bg-primary/90",
+                    "hover:no-underline",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                    "[&[data-state=open]>svg]:rotate-180"
+                  )}
+                >
+                  Book Grant
+                </AccordionTrigger>
+              </div>
               <AccordionContent 
                 className="pt-6" 
                 forceMount
@@ -193,28 +160,10 @@ export function CTAForm() {
                     alt=""
                   />
                 </div>
-
-                {/* Trust Signals */}
-                <div className="pt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-                  <div className="flex items-center space-x-2">
-                    <Clock className="h-4 w-4 text-secondary" />
-                    <span>Quick replies, same business day</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Check className="h-4 w-4 text-secondary" />
-                    <span>No-pressure quote—just options</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Shield className="h-4 w-4 text-secondary" />
-                    <span>Secure details, kept private</span>
-                  </div>
-                </div>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-        </motion.div>
       </div>
-    </section>
     </>
   )
 }

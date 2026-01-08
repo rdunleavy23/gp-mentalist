@@ -50,7 +50,7 @@ export function StickyMobileCTA() {
               size="lg"
           className="flex-1 min-h-[48px] text-base font-semibold"
             >
-              Check Availability
+              Book Grant
             </Button>
             <button
           onClick={() => {

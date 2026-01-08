@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { CTAForm } from "@/components/sections/cta-form"
 
 export function HowItWorks() {
   const scrollToSection = (id: string) => {
@@ -49,7 +50,7 @@ export function HowItWorks() {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
-            How It Works
+            Next Steps
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-[70ch] mx-auto">
             From first call to applause—here&apos;s how we keep it smooth and low-stress
@@ -144,22 +145,16 @@ export function HowItWorks() {
           })}
         </div>
 
-        {/* Conversion CTA */}
+        {/* Contact Form Accordion */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-12 md:mt-16 text-center"
+          className="mt-12 md:mt-16"
         >
-          <Button
-            size="lg"
-            onClick={() => scrollToSection("contact")}
-            className="text-base md:text-lg font-semibold px-8 py-6"
-          >
-            Check Availability
-          </Button>
-          <p className="mt-3 text-sm text-muted-foreground">
+          <CTAForm />
+          <p className="mt-3 text-sm text-muted-foreground text-center">
             Quick reply, no pressure—just availability and options
           </p>
         </motion.div>

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Users, Calendar, Building2, Award } from "lucide-react"
+import { Users, Building2, Award } from "lucide-react"
 
 export function Stats() {
   const stats = [
@@ -9,11 +9,6 @@ export function Stats() {
       icon: Users,
       value: "70,000+",
       label: "People Entertained",
-    },
-    {
-      icon: Calendar,
-      value: "500+",
-      label: "Corporate Events",
     },
     {
       icon: Building2,
@@ -30,7 +25,7 @@ export function Stats() {
   return (
     <section className="py-16 md:py-20 bg-[#0A0E27]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-3 gap-8 md:gap-12">
           {stats.map((stat, index) => {
             const Icon = stat.icon
             return (

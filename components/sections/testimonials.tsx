@@ -54,7 +54,7 @@ export function Testimonials() {
             </div>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4 text-center">
-            What clients are saying afterward
+            Don't Take Our Word For It
           </h2>
           <p className="text-center text-muted-foreground mb-6 max-w-[70ch]">
             Notes from planners, execs, and teams after the show
@@ -86,7 +86,7 @@ export function Testimonials() {
             onClick={() => scrollToSection("contact")}
             className="text-base md:text-lg font-semibold px-8 py-6"
           >
-            Check Availability
+            Book Grant
           </Button>
         </motion.div>
       </div>

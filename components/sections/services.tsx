@@ -1,50 +1,32 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Users, Briefcase, PartyPopper } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { ArrowRight } from "lucide-react"
 
 export function Services() {
   const services = [
     {
-      icon: Briefcase,
-      title: "Conferences & Company Meetings",
-      description: "Conference room’s buzzing, coffee in hand, and the opener keeps laptops shut and heads up.",
-      features: [
-        "High-energy opener/closer that resets the room",
-        "Walkaround between sessions to spark hallway chatter",
-        "Stage beats with tasteful, corporate-safe participation",
-        "He reads the agenda so you don’t have to worry",
-      ],
+      number: "1",
+      title: "Event Success Call",
+      description: "Quick chat about your event goals, audience vibe, and timeline. We'll map out what works best—no sales pitch, just clarity.",
     },
     {
-      icon: Users,
-      title: "Executive Retreats & Team Building",
-      description: "Think boardroom or lodge: small, smart moments that get leaders talking without the cheese.",
-      features: [
-        "Small-group reveals that spark honest conversation",
-        "Custom beats tied to your goals or values",
-        "Pacing matched to dinners and offsites",
-        "White-glove coordination; you enjoy, he cues",
-      ],
+      number: "2",
+      title: "Strolling Magic",
+      description: "Grant moves through your crowd with close-up miracles. Perfect for cocktail hours, networking breaks, or keeping energy high between sessions.",
     },
     {
-      icon: PartyPopper,
-      title: "Galas, Awards & Celebrations",
-      description: "Ballroom buzz: between courses and awards, guests stay engaged and keep chatting.",
-      features: [
-        "Mix-and-mingle astonishment as guests arrive",
-        "Quick stage moments between segments, no drag",
-        "Holiday parties, fundraisers, launches, and galas",
-        "Teams leave with Monday “how did he…?” stories",
-      ],
+      number: "3",
+      title: "Stage Show",
+      description: "A polished performance that brings the whole room together. Mind-reading, predictions, and moments your team will replay for weeks.",
     },
   ]
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-gray-50">
-      {/* Offer clear options that feel safe, flexible, and people-friendly */}
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,51 +34,89 @@ export function Services() {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
+          <div className="flex justify-center mb-4">
+            <div className="border border-primary/20 py-1 px-4 rounded-lg text-sm text-primary font-medium">
+              Services
+            </div>
+          </div>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
-            Three Ways to Elevate Your Event
+            What's Included
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-[70ch] mx-auto">
-            Every performance is tailored to your event goals, audience, and company culture
+            Every booking starts with a success call, then Grant tailors the experience to your event
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 lg:gap-12">
+        {/* Desktop - Horizontal */}
+        <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 items-start">
           {services.map((service, index) => {
-            const Icon = service.icon
             return (
               <motion.div
-                key={service.title}
+                key={service.number}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 1, 0.5, 1] }}
+                transition={{ duration: 0.5, delay: index * 0.12, ease: [0.25, 1, 0.5, 1] }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                className="h-full"
+                className="relative"
               >
-                <Card className="h-full hover:shadow-xl transition-shadow">
-                  <CardHeader>
-                    <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <Icon className="h-7 w-7 text-primary" />
+                <Card className="h-full hover:shadow-md transition-shadow">
+                  <CardHeader className="pb-3 space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 rounded-full bg-primary text-white text-lg font-bold flex items-center justify-center shadow-md">
+                        {service.number}
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground m-0">
+                        {service.title}
+                      </h3>
                     </div>
-                    <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                    <CardDescription className="text-base">
-                      {service.description}
-                    </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2">
-                      {service.features.map((feature) => (
-                        <li key={feature} className="flex items-start space-x-2 text-sm">
-                          <span className="text-secondary mt-1">✓</span>
-                          <span className="text-muted-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {service.description}
+                    </p>
                   </CardContent>
                 </Card>
+
+                {/* Arrow between cards (not after last one) */}
+                {index < services.length - 1 && (
+                  <div className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
+                    <ArrowRight className="h-6 w-6 text-secondary" />
+                  </div>
+                )}
               </motion.div>
             )
           })}
+        </div>
+
+        {/* Mobile - Vertical Stack */}
+        <div className="md:hidden space-y-6">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.number}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card>
+                <CardHeader className="pb-3 space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-full bg-primary text-white text-lg font-bold flex items-center justify-center shadow-md">
+                      {service.number}
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground m-0">
+                      {service.title}
+                    </h3>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
