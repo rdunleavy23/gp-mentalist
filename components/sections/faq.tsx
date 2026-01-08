@@ -17,7 +17,7 @@ export function FAQ() {
           <p>
             Absolutely. My show is designed for executives, professionals, and mixed company crowds. No embarrassing moments, no edgy humor, no awkward volunteer bits. Just clean, smart mentalism that gets people leaning in and laughing together without ever putting anyone on the spot.
           </p>
-          <p>My rule of thumb: if it wouldn't fly in your office, it won't be in my show.</p>
+          <p>My rule of thumb: if it wouldn&apos;t fly in your office, it won&apos;t be in my show.</p>
         </div>
       ),
     },
@@ -34,7 +34,7 @@ export function FAQ() {
               <li>buffer time</li>
               <li>backup cues</li>
               <li>multiple ways to shorten or stretch segments</li>
-              <li>a "keep-everyone-calm" attitude</li>
+              <li>a &ldquo;keep-everyone-calm&rdquo; attitude</li>
             </ul>
           </div>
           <p>I&apos;m there to make your life easier for the <em>entire</em> event.</p>

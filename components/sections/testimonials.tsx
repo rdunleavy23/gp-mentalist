@@ -54,7 +54,7 @@ export function Testimonials() {
             </div>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4 text-center">
-            Don't Take Our Word For It
+            Don&apos;t Take Our Word For It
           </h2>
           <p className="text-center text-muted-foreground mb-6 max-w-[70ch]">
             Notes from planners, execs, and teams after the show

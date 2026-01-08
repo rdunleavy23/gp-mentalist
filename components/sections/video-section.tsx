@@ -56,7 +56,7 @@ export function ReactionSection() {
           <figure className="mt-8 text-center">
             <blockquote className="space-y-3">
               <p className="text-xl md:text-2xl font-serif font-bold text-foreground leading-snug">
-                "As much as I love watching Grant, watching the crowd's faces was my favorite part. Can't wait to use him again!"
+                &ldquo;As much as I love watching Grant, watching the crowd&apos;s faces was my favorite part. Can&apos;t wait to use him again!&rdquo;
               </p>
             </blockquote>
             <figcaption className="text-sm md:text-base text-muted-foreground mt-3">

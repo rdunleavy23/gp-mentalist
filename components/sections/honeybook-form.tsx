@@ -20,7 +20,7 @@ export function HoneybookForm({ formUrl }: HoneybookFormProps) {
           className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6 tracking-tight">
-            Want a Monday full of "wait… how did he do that?"
+            Want a Monday full of &ldquo;wait… how did he do that?&rdquo;
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed max-w-2xl mx-auto">
             Join 500+ teams who trust Grant for clean, corporate-friendly fun. Share a date, get a no-pressure quote, and hear back quickly.
