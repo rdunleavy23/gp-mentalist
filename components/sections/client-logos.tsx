@@ -71,6 +71,32 @@ export function ClientLogos() {
       }
     }
   }, [])
+  // Helper to get custom sizing for specific logos
+  const getLogoSizeClass = (name: string, isMobile: boolean = false) => {
+    const baseClass = isMobile 
+      ? "h-10 w-auto max-w-[100px] object-contain grayscale opacity-50"
+      : "h-16 w-auto max-w-[160px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    
+    // Custom sizing adjustments
+    if (name === "Texas Health Resources") {
+      return isMobile
+        ? "h-12 w-auto max-w-[120px] object-contain grayscale opacity-50"
+        : "h-20 w-auto max-w-[200px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    }
+    if (name === "Chick-fil-A") {
+      return isMobile
+        ? "h-12 w-auto max-w-[120px] object-contain grayscale opacity-50"
+        : "h-20 w-auto max-w-[200px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    }
+    if (name === "Alcon") {
+      return isMobile
+        ? "h-8 w-auto max-w-[80px] object-contain grayscale opacity-50"
+        : "h-14 w-auto max-w-[140px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    }
+    
+    return baseClass
+  }
+
   // Order: Google first, then Cowboys, then mix for visual balance
   const clients = [
     // Row 1 (desktop): 6 logos
@@ -138,7 +164,7 @@ export function ClientLogos() {
                   <img
                     src={client.image}
                     alt={`${client.name} logo`}
-                    className="h-10 w-auto max-w-[100px] object-contain grayscale opacity-50"
+                    className={getLogoSizeClass(client.name, true)}
                   />
                 </div>
               ))}
@@ -152,7 +178,7 @@ export function ClientLogos() {
                   <img
                     src={client.image}
                     alt={`${client.name} logo`}
-                    className="h-10 w-auto max-w-[100px] object-contain grayscale opacity-50"
+                    className={getLogoSizeClass(client.name, true)}
                   />
                 </div>
               ))}
@@ -178,7 +204,7 @@ export function ClientLogos() {
                 <img
                   src={client.image}
                   alt={`${client.name} logo`}
-                  className="h-16 w-auto max-w-[160px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  className={getLogoSizeClass(client.name, false)}
                   loading="lazy"
                 />
               </div>
@@ -191,7 +217,7 @@ export function ClientLogos() {
                 <img
                   src={client.image}
                   alt={`${client.name} logo`}
-                  className="h-16 w-auto max-w-[160px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  className={getLogoSizeClass(client.name, false)}
                   loading="lazy"
                 />
               </div>
