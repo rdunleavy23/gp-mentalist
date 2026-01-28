@@ -8,59 +8,62 @@ export function ClientLogos() {
 
   // Light auto-scroll that pauses on user interaction (mobile only)
   useEffect(() => {
-    let intervalId: ReturnType<typeof setInterval> | null = null
+    const container = scrollRef.current
+    if (!container) return
+
+    let animationFrameId: number | null = null
     let isPaused = false
     let pauseTimeout: ReturnType<typeof setTimeout> | null = null
-
-    const startAutoScroll = () => {
-      if (intervalId) return // Already running
-      
-      intervalId = setInterval(() => {
-        const container = scrollRef.current
-        if (container && !isPaused) {
-          const maxScroll = container.scrollWidth - container.clientWidth
-          
-          if (maxScroll > 0) {
-            container.scrollLeft += 1 // 1px per frame
-            
-            // Reset to start when reaching the end
-            if (container.scrollLeft >= maxScroll - 2) {
-              container.scrollLeft = 0
-            }
-          }
-        }
-      }, 40) // Every 40ms = ~25px/second (light but visible)
-    }
+    let lastScrollTime = 0
 
     const pauseScroll = () => {
       isPaused = true
       if (pauseTimeout) clearTimeout(pauseTimeout)
       pauseTimeout = setTimeout(() => {
         isPaused = false
-      }, 2000) // Resume after 2 seconds
+        lastScrollTime = performance.now()
+      }, 2000)
     }
 
-    // Start after delay to ensure DOM is ready
-    const startDelay = setTimeout(() => {
-      const container = scrollRef.current
-      if (container) {
-        // Check if scrollable (has overflow)
-        const hasOverflow = container.scrollWidth > container.clientWidth
-        
-        if (hasOverflow) {
-          container.addEventListener('touchstart', pauseScroll, { passive: true })
-          container.addEventListener('touchmove', pauseScroll, { passive: true })
-          container.addEventListener('mousedown', pauseScroll, { passive: true })
-          startAutoScroll()
+    const autoScroll = (currentTime: number) => {
+      if (!container) return
+
+      if (!isPaused) {
+        // Smooth scrolling at ~20px/second
+        const elapsed = currentTime - lastScrollTime
+        if (elapsed >= 50) { // Update every 50ms
+          const scrollAmount = 1 // 1px per update = 20px/second
+          const maxScroll = container.scrollWidth / 2 // Half because we duplicated
+          
+          container.scrollLeft += scrollAmount
+          
+          // Reset to start when reaching halfway (seamless loop)
+          if (container.scrollLeft >= maxScroll - 5) {
+            container.scrollLeft = 0
+          }
+          
+          lastScrollTime = currentTime
         }
       }
-    }, 800) // Reduced delay
+
+      animationFrameId = requestAnimationFrame(autoScroll)
+    }
+
+    // Wait for container to be ready and have content
+    const initDelay = setTimeout(() => {
+      if (container && container.scrollWidth > container.clientWidth) {
+        container.addEventListener('touchstart', pauseScroll, { passive: true })
+        container.addEventListener('touchmove', pauseScroll, { passive: true })
+        container.addEventListener('mousedown', pauseScroll, { passive: true })
+        lastScrollTime = performance.now()
+        animationFrameId = requestAnimationFrame(autoScroll)
+      }
+    }, 1000)
 
     return () => {
-      clearTimeout(startDelay)
-      if (intervalId) clearInterval(intervalId)
+      clearTimeout(initDelay)
+      if (animationFrameId) cancelAnimationFrame(animationFrameId)
       if (pauseTimeout) clearTimeout(pauseTimeout)
-      const container = scrollRef.current
       if (container) {
         container.removeEventListener('touchstart', pauseScroll)
         container.removeEventListener('touchmove', pauseScroll)
@@ -103,7 +106,7 @@ export function ClientLogos() {
           </p>
         </motion.div>
 
-        {/* Mobile: Swipeable carousel */}
+        {/* Mobile: Swipeable carousel with auto-scroll */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,25 +118,45 @@ export function ClientLogos() {
           <div className="absolute left-0 top-0 bottom-6 w-6 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-6 w-12 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
           
-          {/* Swipeable scroll container with light auto-scroll */}
-          <div 
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto pb-4 px-4 snap-x snap-mandatory scrollbar-hide"
-            style={{ WebkitOverflowScrolling: 'touch' }}
-          >
-            {clients.map((client) => (
-              <div 
-                key={client.name}
-                className="flex-shrink-0 snap-center flex items-center justify-center py-2"
-                style={{ minWidth: '110px' }}
-              >
-                <img
-                  src={client.image}
-                  alt={`${client.name} logo`}
-                  className="h-10 w-auto max-w-[100px] object-contain grayscale opacity-50"
-                />
-              </div>
-            ))}
+          {/* Auto-scrolling container - duplicate logos for seamless loop */}
+          <div className="overflow-hidden">
+            <div 
+              ref={scrollRef}
+              className="flex gap-6 overflow-x-auto pb-4 px-4 scrollbar-hide"
+              style={{ 
+                WebkitOverflowScrolling: 'touch',
+                scrollBehavior: 'auto'
+              }}
+            >
+              {/* First set */}
+              {clients.map((client, idx) => (
+                <div 
+                  key={`first-${idx}`}
+                  className="flex-shrink-0 flex items-center justify-center py-2"
+                  style={{ minWidth: '110px' }}
+                >
+                  <img
+                    src={client.image}
+                    alt={`${client.name} logo`}
+                    className="h-10 w-auto max-w-[100px] object-contain grayscale opacity-50"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {clients.map((client, idx) => (
+                <div 
+                  key={`second-${idx}`}
+                  className="flex-shrink-0 flex items-center justify-center py-2"
+                  style={{ minWidth: '110px' }}
+                >
+                  <img
+                    src={client.image}
+                    alt={`${client.name} logo`}
+                    className="h-10 w-auto max-w-[100px] object-contain grayscale opacity-50"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
           <p className="text-center text-xs text-muted-foreground/60">
             Swipe to see more →
