@@ -154,7 +154,7 @@ export function ClientLogos() {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-14"
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground leading-tight">
+          <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground leading-tight max-w-2xl mx-auto px-4">
             Trusted by teams that expect the best
           </h2>
         </motion.div>
