@@ -71,6 +71,26 @@ export function ClientLogos() {
       }
     }
   }, [])
+  // Helper to get custom spacing for logos based on their internal whitespace
+  const getLogoSpacing = (name: string) => {
+    // Logos with more internal whitespace need less gap
+    // Logos with tight spacing need more gap
+    const spacingMap: Record<string, string> = {
+      "Texas Health Resources": "px-3", // Has emblem + text, more internal space
+      "Chick-fil-A": "px-3", // Has chicken icon, more internal space
+      "US Air Force": "px-4", // Has emblem + text, moderate space
+      "Southwest Airlines": "px-5", // Tight wordmark, needs more space
+      "Luke Bryan": "px-5", // Tight wordmark, needs more space
+      "Dallas Cowboys": "px-4", // Wordmark with star, moderate space
+      "Alcon": "px-4", // Simple wordmark, moderate space
+      "Google": "px-4", // Wordmark, moderate space
+      "Microsoft": "px-4", // Has icon + wordmark, moderate space
+      "Ferrari": "px-4", // Wordmark, moderate space
+      "Olipop": "px-4", // Wordmark, moderate space
+    }
+    return spacingMap[name] || "px-4" // Default spacing
+  }
+
   // Helper to get custom sizing for specific logos
   const getLogoSizeClass = (name: string, isMobile: boolean = false) => {
     const baseClass = isMobile 
@@ -148,7 +168,7 @@ export function ClientLogos() {
           <div className="overflow-hidden">
             <div 
               ref={scrollRef}
-              className="flex gap-6 overflow-x-auto pb-4 px-4 scrollbar-hide"
+              className="flex gap-3 overflow-x-auto pb-4 px-4 scrollbar-hide"
               style={{ 
                 WebkitOverflowScrolling: 'touch',
                 scrollBehavior: 'auto'
@@ -158,8 +178,7 @@ export function ClientLogos() {
               {clients.map((client, idx) => (
                 <div 
                   key={`first-${idx}`}
-                  className="flex-shrink-0 flex items-center justify-center py-2"
-                  style={{ minWidth: '110px' }}
+                  className={`flex-shrink-0 flex items-center justify-center py-2 ${getLogoSpacing(client.name)}`}
                 >
                   <img
                     src={client.image}
@@ -172,8 +191,7 @@ export function ClientLogos() {
               {clients.map((client, idx) => (
                 <div 
                   key={`second-${idx}`}
-                  className="flex-shrink-0 flex items-center justify-center py-2"
-                  style={{ minWidth: '110px' }}
+                  className={`flex-shrink-0 flex items-center justify-center py-2 ${getLogoSpacing(client.name)}`}
                 >
                   <img
                     src={client.image}
