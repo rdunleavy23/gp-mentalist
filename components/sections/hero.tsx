@@ -14,10 +14,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center lg:text-left"
+            className="text-left"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
-              Interactive Mind-Reading for Upscale Events
+            <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
+              Interactive Mind-Reading for Your Next Event
             </h1>
 
             {/* Hero Image - Mobile: between h1 and paragraph, Desktop: hidden (shown on right) */}
