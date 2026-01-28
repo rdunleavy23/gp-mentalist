@@ -80,13 +80,13 @@ export function ClientLogos() {
     // Custom sizing adjustments
     if (name === "Texas Health Resources") {
       return isMobile
-        ? "h-12 w-auto max-w-[120px] object-contain grayscale opacity-50"
-        : "h-20 w-auto max-w-[200px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+        ? "h-14 w-auto max-w-[140px] object-contain grayscale opacity-50"
+        : "h-24 w-auto max-w-[240px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
     }
     if (name === "Chick-fil-A") {
       return isMobile
-        ? "h-12 w-auto max-w-[120px] object-contain grayscale opacity-50"
-        : "h-20 w-auto max-w-[200px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+        ? "h-14 w-auto max-w-[140px] object-contain grayscale opacity-50"
+        : "h-24 w-auto max-w-[240px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
     }
     if (name === "Alcon") {
       return isMobile
