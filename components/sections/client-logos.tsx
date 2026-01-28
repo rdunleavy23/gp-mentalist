@@ -145,14 +145,14 @@ export function ClientLogos() {
   ]
 
   return (
-    <section id="clients" className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50/50">
+    <section id="clients" className="pt-6 pb-16 md:pt-8 md:pb-24 bg-gradient-to-b from-white to-gray-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-10 md:mb-14"
+          className="text-center mb-6 md:mb-10"
         >
           <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground leading-tight max-w-2xl mx-auto px-4">
             Trusted by teams that expect the best
