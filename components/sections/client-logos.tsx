@@ -71,22 +71,32 @@ export function ClientLogos() {
       }
     }
   }, [])
-  // Helper to get custom spacing for logos based on their internal whitespace
+  // Helper to get custom spacing for logos based on visual content boundaries
+  // Measured from where the actual design begins (not file edges)
   const getLogoSpacing = (name: string) => {
-    // Logos with more internal whitespace need less gap
-    // Logos with tight spacing need more gap
+    // Spacing is measured from visual content edges, accounting for:
+    // - Built-in transparent padding in SVG files (negative viewBox, etc.)
+    // - Tight vs loose designs
+    // - Visual weight and breathing room needed
     const spacingMap: Record<string, string> = {
-      "Texas Health Resources": "px-3", // Has emblem + text, more internal space
-      "Chick-fil-A": "px-5", // Has chicken icon but needs more visual spacing
-      "US Air Force": "px-4", // Has emblem + text, moderate space
-      "Southwest Airlines": "px-5", // Tight wordmark, needs more space
-      "Luke Bryan": "px-5", // Tight wordmark, needs more space
-      "Dallas Cowboys": "px-4", // Wordmark with star, moderate space
-      "Alcon": "px-4", // Simple wordmark, moderate space
-      "Google": "px-4", // Wordmark, moderate space
-      "Microsoft": "px-4", // Has icon + wordmark, moderate space
-      "Ferrari": "px-4", // Wordmark, moderate space
-      "Olipop": "px-4", // Wordmark, moderate space
+      // Logos with built-in padding (visual content starts later in file):
+      "Chick-fil-A": "px-2", // viewBox starts at -86.99, visual content has ~87 units padding on left
+      "Texas Health Resources": "px-2.5", // PNG with padding around emblem+text
+      
+      // Tight edge-to-edge wordmarks (need more breathing room):
+      "Southwest Airlines": "px-6", // viewBox 0 0 223 34 - very tight, edge-to-edge
+      "Luke Bryan": "px-6", // viewBox 0 0 1873 313 - very wide, tight wordmark
+      "Dallas Cowboys": "px-5", // viewBox 0 0 500 84.67 - tight wordmark
+      
+      // Standard wordmarks (moderate spacing):
+      "Google": "px-4", // viewBox 0 0 139.9 44 - standard
+      "Microsoft": "px-4", // viewBox 0 0 604 129 - icon + wordmark
+      "Ferrari": "px-4", // viewBox 0 0 2835 642 - wide but has spacing
+      "Olipop": "px-4", // PNG - standard
+      "Alcon": "px-4", // viewBox 0 0 204.7 55.9 - standard
+      
+      // Logos with emblems (moderate spacing):
+      "US Air Force": "px-4", // viewBox 0 0 338.667 264.018 - emblem + text
     }
     return spacingMap[name] || "px-4" // Default spacing
   }
