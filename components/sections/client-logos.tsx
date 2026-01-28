@@ -6,49 +6,60 @@ import { useEffect, useRef } from "react"
 export function ClientLogos() {
   const scrollRef = useRef<HTMLDivElement>(null)
 
-  // Light auto-scroll that pauses on user interaction
+  // Light auto-scroll that pauses on user interaction (mobile only)
   useEffect(() => {
-    let intervalId: ReturnType<typeof setInterval>
+    let intervalId: ReturnType<typeof setInterval> | null = null
     let isPaused = false
-    let pauseTimeout: ReturnType<typeof setTimeout>
+    let pauseTimeout: ReturnType<typeof setTimeout> | null = null
 
     const startAutoScroll = () => {
+      if (intervalId) return // Already running
+      
       intervalId = setInterval(() => {
         const container = scrollRef.current
         if (container && !isPaused) {
-          container.scrollLeft += 1
+          const maxScroll = container.scrollWidth - container.clientWidth
           
-          // Reset to start when reaching the end
-          if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 5) {
-            container.scrollLeft = 0
+          if (maxScroll > 0) {
+            container.scrollLeft += 1 // 1px per frame
+            
+            // Reset to start when reaching the end
+            if (container.scrollLeft >= maxScroll - 2) {
+              container.scrollLeft = 0
+            }
           }
         }
-      }, 30) // ~33fps, moves 1px every 30ms = ~33px/second
+      }, 40) // Every 40ms = ~25px/second (light but visible)
     }
 
     const pauseScroll = () => {
       isPaused = true
-      clearTimeout(pauseTimeout)
+      if (pauseTimeout) clearTimeout(pauseTimeout)
       pauseTimeout = setTimeout(() => {
         isPaused = false
-      }, 2500) // Resume after 2.5 seconds
+      }, 2000) // Resume after 2 seconds
     }
 
-    // Start after a short delay
+    // Start after delay to ensure DOM is ready
     const startDelay = setTimeout(() => {
       const container = scrollRef.current
       if (container) {
-        container.addEventListener('touchstart', pauseScroll, { passive: true })
-        container.addEventListener('touchmove', pauseScroll, { passive: true })
-        container.addEventListener('mousedown', pauseScroll, { passive: true })
-        startAutoScroll()
+        // Check if scrollable (has overflow)
+        const hasOverflow = container.scrollWidth > container.clientWidth
+        
+        if (hasOverflow) {
+          container.addEventListener('touchstart', pauseScroll, { passive: true })
+          container.addEventListener('touchmove', pauseScroll, { passive: true })
+          container.addEventListener('mousedown', pauseScroll, { passive: true })
+          startAutoScroll()
+        }
       }
-    }, 1000)
+    }, 800) // Reduced delay
 
     return () => {
       clearTimeout(startDelay)
-      clearInterval(intervalId)
-      clearTimeout(pauseTimeout)
+      if (intervalId) clearInterval(intervalId)
+      if (pauseTimeout) clearTimeout(pauseTimeout)
       const container = scrollRef.current
       if (container) {
         container.removeEventListener('touchstart', pauseScroll)
