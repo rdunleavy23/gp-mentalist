@@ -152,9 +152,9 @@ export function ClientLogos() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-8 md:mb-12"
+          className="text-center mb-10 md:mb-14"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground leading-tight">
             Trusted by teams that expect the best
           </h2>
         </motion.div>
