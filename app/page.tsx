@@ -1,6 +1,5 @@
 import { Navigation } from "@/components/sections/navigation"
 import { Hero } from "@/components/sections/hero"
-import { ClientLogos } from "@/components/sections/client-logos"
 import { Services } from "@/components/sections/services"
 import { HowItWorks } from "@/components/sections/how-it-works"
 import { ReactionSection } from "@/components/sections/video-section"
@@ -16,7 +15,6 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      <ClientLogos />
       <Services />
       <ReactionSection />
       <Testimonials />
