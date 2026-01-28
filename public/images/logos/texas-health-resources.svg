@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 80">
+  <!-- Standardized: 400×80px -->
+  <!-- Standardized container: 356×200px, aspect ratio 1.78:1 -->
+  <!-- Padding: 20px horizontal, 20px vertical -->
+  <!-- Following STANDARDIZATION_GUIDE.md protocols -->
+  <image 
+    x="20" 
+    y="20" 
+    width="316" 
+    height="160" 
+    href="/images/logos/texas-health-resources.png"
+    preserveAspectRatio="xMidYMid meet"
+  />
+</svg>

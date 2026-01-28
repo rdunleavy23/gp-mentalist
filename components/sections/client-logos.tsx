@@ -1,38 +1,81 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
-import Image from "next/image"
+import { useEffect, useRef } from "react"
 
 export function ClientLogos() {
-  // Premium clients - currently using available logos
-  // TODO: Add remaining client logos (see /public/images/logos/MISSING_LOGOS.md)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  // Light auto-scroll that pauses on user interaction
+  useEffect(() => {
+    let intervalId: ReturnType<typeof setInterval>
+    let isPaused = false
+    let pauseTimeout: ReturnType<typeof setTimeout>
+
+    const startAutoScroll = () => {
+      intervalId = setInterval(() => {
+        const container = scrollRef.current
+        if (container && !isPaused) {
+          container.scrollLeft += 1
+          
+          // Reset to start when reaching the end
+          if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 5) {
+            container.scrollLeft = 0
+          }
+        }
+      }, 30) // ~33fps, moves 1px every 30ms = ~33px/second
+    }
+
+    const pauseScroll = () => {
+      isPaused = true
+      clearTimeout(pauseTimeout)
+      pauseTimeout = setTimeout(() => {
+        isPaused = false
+      }, 2500) // Resume after 2.5 seconds
+    }
+
+    // Start after a short delay
+    const startDelay = setTimeout(() => {
+      const container = scrollRef.current
+      if (container) {
+        container.addEventListener('touchstart', pauseScroll, { passive: true })
+        container.addEventListener('touchmove', pauseScroll, { passive: true })
+        container.addEventListener('mousedown', pauseScroll, { passive: true })
+        startAutoScroll()
+      }
+    }, 1000)
+
+    return () => {
+      clearTimeout(startDelay)
+      clearInterval(intervalId)
+      clearTimeout(pauseTimeout)
+      const container = scrollRef.current
+      if (container) {
+        container.removeEventListener('touchstart', pauseScroll)
+        container.removeEventListener('touchmove', pauseScroll)
+        container.removeEventListener('mousedown', pauseScroll)
+      }
+    }
+  }, [])
+  // Order: Google first, then Cowboys, then mix for visual balance
   const clients = [
-    { name: "Google", image: "/images/logos/google.png" },
-    { name: "Microsoft", image: "/images/logos/microsoft.png" },
-    { name: "Texas Health Resources", image: "/images/logos/texas-health-resources.png" },
-    { name: "Dallas Cowboys", image: "/images/logos/dallas-cowboys.png" },
+    // Row 1 (desktop): 6 logos
+    { name: "Google", image: "/images/logos/google.svg" },
+    { name: "Dallas Cowboys", image: "/images/logos/dallas-cowboys.svg" },
+    { name: "Microsoft", image: "/images/logos/microsoft.svg" },
     { name: "US Air Force", image: "/images/logos/us-air-force.svg" },
-    // These logos need to be added - will display as text fallback until added:
-    { name: "Southwest Airlines", image: "/images/logos/southwest.png" },
-    { name: "Alcon", image: "/images/logos/alcon.png" },
-    { name: "Chick-fil-A", image: "/images/logos/chickfila.png" },
-    { name: "Ferrari", image: "/images/logos/ferrari.png" },
-    { name: "Artivion", image: "/images/logos/artivion.png" },
-    { name: "Luke Bryan", image: "/images/logos/luke-bryan.png" },
-    { name: "Triumph", image: "/images/logos/triumph.png" },
-    { name: "Flexential", image: "/images/logos/flexential.png" },
-    { name: "InfoIMAGE", image: "/images/logos/infoimage.png" },
-    { name: "Idera", image: "/images/logos/idera.png" },
-    { name: "BazaarVoice", image: "/images/logos/bazaarvoice.png" },
-    { name: "Dynatron", image: "/images/logos/dynatron.png" },
+    { name: "Ferrari", image: "/images/logos/ferrari.svg" },
+    { name: "Texas Health Resources", image: "/images/logos/texas-health-resources.png" },
+    // Row 2 (desktop): 5 logos centered
+    { name: "Chick-fil-A", image: "/images/logos/chick-fil-a.svg" },
+    { name: "Alcon", image: "/images/logos/alcon.svg" },
+    { name: "Southwest Airlines", image: "/images/logos/southwest-airlines.svg" },
+    { name: "Luke Bryan", image: "/images/logos/luke-bryan.svg" },
     { name: "Olipop", image: "/images/logos/olipop.png" },
-    { name: "Nutex Health", image: "/images/logos/nutex-health.png" },
-    { name: "Ameriflex", image: "/images/logos/ameriflex.png" },
   ]
 
   return (
-    <section id="clients" className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50/50 overflow-hidden">
+    <section id="clients" className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -49,68 +92,79 @@ export function ClientLogos() {
           </p>
         </motion.div>
 
-        {/* Infinite Marquee */}
-        <div className="relative">
-          {/* Gradient Overlays for fade effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-          <div className="flex overflow-hidden">
-            <motion.div
-              className="flex gap-12 md:gap-16"
-              animate={{
-                x: [0, -1920],
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 40,
-                  ease: "linear",
-                },
-              }}
-            >
-              {/* First set of logos */}
-              {clients.map((client) => (
-                <LogoItem key={`first-${client.name}`} client={client} />
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {clients.map((client) => (
-                <LogoItem key={`second-${client.name}`} client={client} />
-              ))}
-            </motion.div>
+        {/* Mobile: Swipeable carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="lg:hidden relative"
+        >
+          {/* Fade edges */}
+          <div className="absolute left-0 top-0 bottom-6 w-6 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-6 w-12 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+          
+          {/* Swipeable scroll container with light auto-scroll */}
+          <div 
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto pb-4 px-4 snap-x snap-mandatory scrollbar-hide"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
+            {clients.map((client) => (
+              <div 
+                key={client.name}
+                className="flex-shrink-0 snap-center flex items-center justify-center py-2"
+                style={{ minWidth: '110px' }}
+              >
+                <img
+                  src={client.image}
+                  alt={`${client.name} logo`}
+                  className="h-10 w-auto max-w-[100px] object-contain grayscale opacity-50"
+                />
+              </div>
+            ))}
           </div>
-        </div>
+          <p className="text-center text-xs text-muted-foreground/60">
+            Swipe to see more →
+          </p>
+        </motion.div>
+
+        {/* Desktop: Static Grid - Row 1: 6 logos, Row 2: 5 logos centered */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="hidden lg:block max-w-5xl mx-auto"
+        >
+          {/* First row - 6 logos */}
+          <div className="grid grid-cols-6 gap-8 mb-8">
+            {clients.slice(0, 6).map((client) => (
+              <div key={client.name} className="flex items-center justify-center p-4">
+                <img
+                  src={client.image}
+                  alt={`${client.name} logo`}
+                  className="h-16 w-auto max-w-[160px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+          {/* Second row - 5 logos, centered */}
+          <div className="grid grid-cols-5 gap-8 px-[8.333%]">
+            {clients.slice(6).map((client) => (
+              <div key={client.name} className="flex items-center justify-center p-4">
+                <img
+                  src={client.image}
+                  alt={`${client.name} logo`}
+                  className="h-16 w-auto max-w-[160px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
-  )
-}
-
-function LogoItem({ client }: { client: { name: string; image: string } }) {
-  const [imageError, setImageError] = useState(false)
-
-  return (
-    <div className="flex items-center justify-center flex-shrink-0">
-      <div className="relative h-12 md:h-14 w-auto min-w-[100px] md:min-w-[120px] flex items-center justify-center">
-        {!imageError ? (
-          <Image
-            src={client.image}
-            alt={`${client.name} logo`}
-            width={140}
-            height={56}
-            className="object-contain h-full w-auto opacity-50 hover:opacity-80 transition-opacity duration-300"
-            onError={() => {
-              setImageError(true)
-            }}
-          />
-        ) : (
-          <div className="text-center px-2">
-            <p className="text-muted-foreground text-xs md:text-sm font-medium leading-tight whitespace-nowrap">
-              {client.name}
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
   )
 }

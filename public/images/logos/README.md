@@ -1,51 +1,62 @@
 # Client Logos
 
-Add the following logo files to this directory:
+## Overview
 
-1. **texas-health-resources.png** - Texas Health Resources logo
-2. **us-air-force.png** - US Air Force logo  
-3. **google.png** - Google logo
-4. **dallas-cowboys.png** - Dallas Cowboys logo
-5. **microsoft.png** - Microsoft logo
+All 12 client logos are standardized for consistent display and optimal performance. Logos follow best-in-class protocols for visual weight normalization, aspect ratio handling, and optical alignment.
 
-## Logo Requirements (Optimized)
+## Logo List (12 total)
 
-All logos are standardized for consistent display and optimal performance:
+1. **Google** - `google.svg` (needs conversion from PNG)
+2. **Microsoft** - `microsoft.svg` (needs conversion from PNG)
+3. **Texas Health Resources** - `texas-health-resources.svg` (needs conversion from PNG)
+4. **Dallas Cowboys** - `dallas-cowboys.svg` (needs conversion from PNG)
+5. **US Air Force** - `us-air-force.svg` ✅
+6. **Southwest Airlines** - `southwest-airlines.svg` ✅
+7. **Alcon** - `alcon.svg` ✅
+8. **Chick-fil-A** - `chick-fil-a.svg` ✅
+9. **Ferrari** - `ferrari.svg` ✅
+10. **Luke Bryan** - `luke-bryan.svg` ✅
+11. **Triumph** - `triumph.svg` ✅
+12. **Olipop** - `olipop.svg` ✅
 
-### Standardized Dimensions (2x resolution for retina displays)
+## Standardization Protocols
 
-- **Texas Health Resources**: 200px × 67px (3:1 aspect ratio)
-- **US Air Force**: 200px × 200px (1:1 aspect ratio - square)
-- **Google**: 200px × 67px (3:1 aspect ratio)
-- **Dallas Cowboys**: 200px × 114px (1.75:1 aspect ratio)
-- **Microsoft**: 200px × 50px (4:1 aspect ratio)
+All logos follow the protocols in [STANDARDIZATION_GUIDE.md](./STANDARDIZATION_GUIDE.md):
 
-### Display Size
-- **Desktop**: Max height 64px (h-16), width scales proportionally
-- **Mobile**: Max height 64px, max width 128px
-- All logos appear at the same visual height for consistency
+- **Container System**: Flexible containers respecting aspect ratios
+- **Visual Weight**: Normalized through side-by-side comparison
+- **Padding**: 20px minimum (or 5% of container dimension)
+- **Color Profile**: sRGB, full color
+- **Background**: Transparent
+- **File Format**: SVG preferred, PNG fallback (800px width for 2x retina)
 
-### File Format & Optimization
+## Display Specifications
 
-- **Format**: PNG with transparent background (preferred) or white background
-- **Resolution**: 200px width @ 2x for crisp retina displays
-- **File Size**: Optimize with tools like TinyPNG or ImageOptim (target: <50KB per logo)
-- **Color**: Full color (component applies grayscale filter on hover)
-- **Quality**: High resolution, web-optimized
+- **Desktop**: Height: 56px (`h-14`), width scales proportionally
+- **Mobile**: Height: 48px (`h-12`), width scales proportionally
+- **Container CSS**: `h-12 md:h-14 w-auto min-w-[100px] md:min-w-[120px]`
+- **Object fit**: `object-contain` (maintains aspect ratio)
 
-### Technical Specifications
+## File Naming
 
-- Next.js Image component automatically:
-  - Converts to WebP/AVIF formats
-  - Generates responsive sizes
-  - Lazy loads below the fold
-  - Optimizes quality (85% for balance of quality/size)
+- Format: kebab-case
+- Extension: `.svg` (preferred) or `.png` (fallback)
+- Examples: `southwest-airlines.svg`, `chick-fil-a.svg`, `us-air-force.svg`
 
-## Logo Guidelines
+## Next Steps
 
-- ✅ Ensure you have proper licensing/permission to use these logos
-- ✅ Use official brand assets when available
-- ✅ Maintain brand guidelines and proper spacing
-- ✅ Logos will appear in grayscale by default, color on hover
-- ✅ All logos display at consistent 64px height for visual harmony
+1. **Replace placeholder SVGs** with official brand assets from:
+   - Southwest: https://www.swamedia.com/
+   - Ferrari: https://corporate.ferrari.com/en/media
+   - Others: Check official brand/press pages
 
+2. **Convert existing PNG logos** to SVG format
+
+3. **Standardize ALL 12 logos together** using [STANDARDIZATION_GUIDE.md](./STANDARDIZATION_GUIDE.md)
+
+## Important Notes
+
+- ✅ All 12 logo files exist (some are placeholders awaiting official assets)
+- ⚠️ **CRITICAL**: All logos must be standardized together in a design tool
+- ⚠️ Visual weight normalization is essential for best-in-class results
+- ⚠️ Existing PNG logos need conversion to SVG and re-standardization
