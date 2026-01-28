@@ -145,16 +145,16 @@ export function ClientLogos() {
   ]
 
   return (
-    <section id="clients" className="pt-6 pb-16 md:pt-8 md:pb-24 bg-gradient-to-b from-white to-gray-50/50">
+    <section id="clients" className="pt-4 pb-16 md:pt-6 md:pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-6 md:mb-10"
+          className="text-left mb-6 md:mb-10"
         >
-          <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground leading-tight max-w-2xl mx-auto px-4">
+          <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground leading-tight max-w-2xl">
             Trusted by teams that expect the best
           </h2>
         </motion.div>
@@ -167,9 +167,9 @@ export function ClientLogos() {
           viewport={{ once: true }}
           className="lg:hidden relative"
         >
-          {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-6 w-6 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-6 w-12 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+              {/* Fade edges */}
+              <div className="absolute left-0 top-0 bottom-6 w-6 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-6 w-12 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
           
           {/* Auto-scrolling container - duplicate logos for seamless loop */}
           <div className="overflow-hidden">
