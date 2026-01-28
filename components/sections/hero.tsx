@@ -63,7 +63,7 @@ export function Hero() {
               </div>
             </motion.div>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl text-right lg:ml-auto">
               Grant Price delivers corporate-clean mentalism that gets executives leaning in, laughing together, and swapping &ldquo;how did he do that?&rdquo; stories for weeks.
             </p>
           </motion.div>
