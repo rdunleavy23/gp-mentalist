@@ -235,6 +235,9 @@ export function Hero() {
                   </div>
                 </div>
               </div>
+              <p className="text-center text-xs text-muted-foreground/60 mt-2">
+                Swipe to see more →
+              </p>
             </motion.div>
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl text-left">
