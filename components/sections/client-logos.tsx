@@ -77,7 +77,7 @@ export function ClientLogos() {
     // Logos with tight spacing need more gap
     const spacingMap: Record<string, string> = {
       "Texas Health Resources": "px-3", // Has emblem + text, more internal space
-      "Chick-fil-A": "px-3", // Has chicken icon, more internal space
+      "Chick-fil-A": "px-5", // Has chicken icon but needs more visual spacing
       "US Air Force": "px-4", // Has emblem + text, moderate space
       "Southwest Airlines": "px-5", // Tight wordmark, needs more space
       "Luke Bryan": "px-5", // Tight wordmark, needs more space
