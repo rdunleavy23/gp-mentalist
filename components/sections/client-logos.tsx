@@ -152,14 +152,11 @@ export function ClientLogos() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-3">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground">
             Trusted by teams that expect the best
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            From Fortune 500 tech to beloved brands, corporate planners know Grant delivers.
-          </p>
         </motion.div>
 
         {/* Mobile: Swipeable carousel with auto-scroll */}
