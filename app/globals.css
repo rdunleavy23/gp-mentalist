@@ -63,9 +63,9 @@
     line-height: 1.2;
   }
   
-  /* Ensure all body text is at least 16px on mobile */
+  /* Ensure body text is at least 16px on mobile - exclude headings */
   @media (max-width: 768px) {
-    p, span, div {
+    p {
       font-size: 16px;
     }
   }

@@ -1,0 +1,117 @@
+You are a professional brand asset researcher. I need you to find and provide the actual, official logo files for the following companies. These logos will be used in a professional client showcase on a website.
+
+Required Companies (7 logos needed):
+1. Southwest Airlines
+2. Alcon (eye care/medical company)
+3. Chick-fil-A
+4. Ferrari
+5. Luke Bryan (country music artist)
+6. Triumph (motorcycle brand)
+7. Olipop (beverage company)
+
+File Requirements:
+- Format: SVG preferred (vector format), PNG acceptable if SVG not available
+- Quality: High resolution, official brand assets only
+- Background: Transparent (alpha channel)
+- Color: Full color, sRGB color space
+- License: Must be authorized for commercial use (client showcase is acceptable use case)
+- Authenticity: Official brand assets only - no fan-made or modified versions
+
+Search Strategy (execute in this order):
+
+1. Primary Sources (check first - highest priority):
+   - Official company brand guidelines pages (search: "[Company] brand guidelines")
+   - Company press/media kits (search: "[Company] press kit" or "[Company] media kit")
+   - Investor relations pages with brand assets (search: "[Company] investor relations brand")
+   - Official brand asset repositories: Brandfolder, Brand.com, company-specific brand portals
+   - Company design system documentation
+   - Official company GitHub repositories (search: "github.com/[company]/brand" or "github.com/[company] logo")
+
+2. Secondary Sources (if primary unavailable):
+   - Simple Icons library: https://simpleicons.org/ (search each company name)
+   - Wikimedia Commons: https://commons.wikimedia.org/ (search: "[Company] logo" - verify it's official)
+   - GitHub repositories: Search "simple-icons" repository, search "[company] logo svg" in GitHub code search
+   - Public logo databases: LogosPNG, LogoDatabase, WorldVectorLogo (verify they're official)
+
+3. Tertiary Sources (last resort - verify authenticity carefully):
+   - Dribbble/Behance (designer portfolios - verify it matches official brand)
+   - Figma Community (search for brand logo files)
+   - Design asset marketplaces (verify licensing)
+
+Specific Company Search Paths:
+
+1. Southwest Airlines:
+   - Primary: https://www.swamedia.com/ → Brand Assets or Logo Downloads
+   - Alternative: Search "Southwest Airlines brand assets" or "SWA logo download"
+   - Simple Icons: Check simpleicons.org for "southwestairlines"
+
+2. Ferrari:
+   - Primary: https://corporate.ferrari.com/en/media → Logo Downloads
+   - Alternative: Search "Ferrari brand guidelines" or "Ferrari logo svg"
+   - Simple Icons: Check simpleicons.org for "ferrari"
+   - Wikimedia: Search "Ferrari logo" on Wikimedia Commons
+
+3. Chick-fil-A:
+   - Primary: Check official website brand/PR section
+   - Alternative: May require contacting PR team (chick-fil-a.com/contact)
+   - Search: "Chick-fil-A brand assets" or "Chick-fil-A logo download"
+   - Note: They're protective of brand assets - may need permission
+
+4. Alcon:
+   - Primary: Check alcon.com investor relations or corporate media pages
+   - Alternative: Search "Alcon brand guidelines" or "Alcon logo svg"
+   - Simple Icons: Check simpleicons.org for "alcon"
+   - Note: Medical company - may have strict brand guidelines
+
+5. Luke Bryan:
+   - Primary: Check lukebryan.com official website
+   - Alternative: Check record label (Capitol Nashville) brand assets
+   - Search: "Luke Bryan official logo" or "Luke Bryan brand assets"
+   - Note: Music artist - logo may be on official merchandise site
+
+6. Triumph:
+   - Primary: Check triumphmotorcycles.com brand guidelines
+   - Alternative: Search "Triumph Motorcycles brand assets" or "Triumph logo svg"
+   - Simple Icons: Check simpleicons.org for "triumph"
+   - Wikimedia: Search "Triumph Motorcycles logo" on Wikimedia Commons
+
+7. Olipop:
+   - Primary: Check drinkolipop.com official website
+   - Alternative: Search "Olipop brand assets" or "Olipop logo svg"
+   - Contact: May need to contact brand team directly
+   - Note: Smaller brand - may not have public brand assets page
+
+Output Format:
+For each logo found, provide:
+Company: [Name]
+Source: [Exact URL where found]
+Format: [SVG/PNG]
+Dimensions: [Width x Height if available]
+Verification: [Official/Authorized/Needs verification]
+Download: [Direct download link OR complete SVG code]
+SVG Code: [If providing code, include full SVG with proper viewBox]
+File Size: [If known]
+License/Usage: [Any restrictions or requirements]
+Notes: [Any important usage notes, color codes, or restrictions]
+
+Critical Requirements:
+- DO NOT provide modified, fan-made, or unofficial versions
+- DO NOT provide logos with watermarks or overlays
+- DO NOT provide low-resolution or pixelated versions
+- DO provide the actual SVG code or direct download links
+- DO verify the source is official/authorized before providing
+- DO note any usage restrictions or requirements
+- DO preserve original brand colors exactly
+- DO ensure transparent backgrounds (no white/colored backgrounds)
+- DO provide complete, valid SVG markup if giving code
+- DO verify file is optimized but not overly compressed
+
+If a logo cannot be found:
+- Document all sources checked
+- Provide alternative approaches (contact information, etc.)
+- Suggest next steps for obtaining the logo
+
+Priority:
+Find all 7 logos. If some cannot be found through public sources, provide clear instructions on how to obtain them (contact information, request process, etc.).
+
+Begin searching now and provide results for all 7 companies.

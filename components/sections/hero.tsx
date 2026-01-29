@@ -6,20 +6,6 @@ import { useEffect, useRef } from "react"
 
 export function Hero() {
   const scrollRef = useRef<HTMLDivElement>(null)
-  const h1Ref = useRef<HTMLHeadingElement>(null)
-
-  // #region agent log - Debug H1 sizing
-  useEffect(() => {
-    const h1 = h1Ref.current
-    if (!h1) return
-    const computedStyle = window.getComputedStyle(h1)
-    const rootFontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize)
-    const h1FontSize = computedStyle.fontSize
-    const viewportWidth = window.innerWidth
-    const breakpoint = viewportWidth < 640 ? 'base' : viewportWidth < 768 ? 'sm' : viewportWidth < 1024 ? 'md' : viewportWidth < 1280 ? 'lg' : 'xl'
-    fetch('http://127.0.0.1:7242/ingest/8172972b-92d6-4ef3-9f7b-bf08fa56d1cb',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'hero.tsx:useEffect',message:'H1 sizing debug',data:{viewportWidth,breakpoint,h1FontSize,rootFontSize,h1ClassName:h1.className,expectedSize:'text-5xl=3rem=48px'},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'A-D'})}).catch(()=>{});
-  }, [])
-  // #endregion
 
   // Light auto-scroll that pauses on user interaction (mobile only)
   useEffect(() => {
@@ -153,7 +139,7 @@ export function Hero() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-left"
           >
-            <h1 ref={h1Ref} className="text-5xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.1] mb-4 md:mb-6 tracking-tight">
+            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.1] mb-4 md:mb-6 tracking-tight">
               <span className="block">Interactive Mind-Reading</span>
               <span className="block">
                 That{" "}
