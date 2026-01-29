@@ -139,7 +139,7 @@ export function Hero() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-left"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.15] mb-4 md:mb-6 tracking-tight">
+            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.1] mb-4 md:mb-6 tracking-tight">
               <span className="block">Interactive Mind-Reading</span>
               <span className="block">
                 That{" "}
