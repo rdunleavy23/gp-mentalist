@@ -139,14 +139,14 @@ export function Hero() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-left"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.15] mb-4 md:mb-6 tracking-tight">
               <span className="block">Interactive Mind-Reading</span>
               <span className="block">
                 That{" "}
                 <span className="relative inline-block">
                   Wows
                   <svg
-                    className="absolute -bottom-2 left-0 w-full h-4 text-primary"
+                    className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-2 md:h-4 text-primary"
                     viewBox="0 0 100 16"
                     preserveAspectRatio="none"
                     fill="none"
@@ -201,9 +201,9 @@ export function Hero() {
               </div>
 
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-xl p-4 max-w-[200px]">
-                <p className="text-3xl font-bold text-primary">70,000+</p>
-                <p className="text-sm text-muted-foreground">People Entertained</p>
+              <div className="absolute -bottom-4 right-2 sm:-right-4 bg-white rounded-lg shadow-xl p-3 sm:p-4 max-w-[160px] sm:max-w-[200px] z-10">
+                <p className="text-2xl sm:text-3xl font-bold text-primary">70,000+</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">People Entertained</p>
               </div>
             </motion.div>
 
