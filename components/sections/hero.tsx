@@ -88,25 +88,27 @@ export function Hero() {
     return spacingMap[name] || "px-4"
   }
 
-  const getLogoSizeClass = (name: string, isMobile: boolean = false) => {
+  const getLogoSizeClass = (name: string, isMobile: boolean = false, useColor: boolean = false) => {
+    const colorStyle = useColor ? "opacity-80" : "grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    
     const baseClass = isMobile 
       ? "h-10 w-auto max-w-[100px] object-contain opacity-100"
-      : "h-16 w-auto max-w-[160px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      : `h-16 w-auto max-w-[160px] object-contain ${colorStyle}`
     
     if (name === "Texas Health Resources") {
       return isMobile
         ? "h-14 w-auto max-w-[140px] object-contain opacity-100"
-        : "h-24 w-auto max-w-[240px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+        : `h-24 w-auto max-w-[240px] object-contain ${colorStyle}`
     }
     if (name === "Chick-fil-A") {
       return isMobile
         ? "h-14 w-auto max-w-[140px] object-contain opacity-100"
-        : "h-24 w-auto max-w-[240px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+        : `h-24 w-auto max-w-[240px] object-contain ${colorStyle}`
     }
     if (name === "Alcon") {
       return isMobile
         ? "h-8 w-auto max-w-[80px] object-contain opacity-100"
-        : "h-14 w-auto max-w-[140px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+        : `h-14 w-auto max-w-[140px] object-contain ${colorStyle}`
     }
     
     return baseClass
@@ -129,7 +131,7 @@ export function Hero() {
     <section className="relative pt-24 pb-6 md:pt-32 md:pb-8 bg-white">
       {/* Set the tone early: warm, skilled, and easy to work with for corporate rooms */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-14 items-start">
           {/* Left - Content */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -137,8 +139,29 @@ export function Hero() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-left"
           >
-            <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
-              Interactive Mind Reading for Your Next Event
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
+              <span className="block">Interactive Mind-Reading</span>
+              <span className="block">
+                That{" "}
+                <span className="relative inline-block">
+                  Wows
+                  <svg
+                    className="absolute -bottom-2 left-0 w-full h-4 text-primary"
+                    viewBox="0 0 100 16"
+                    preserveAspectRatio="none"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 12C20 8 40 10 60 7C80 4 95 6 97 8"
+                      stroke="currentColor"
+                      strokeWidth="6"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+                {" "}Your Audience
+              </span>
             </h1>
 
             {/* Hero Image - Mobile: between h1 and paragraph, Desktop: hidden (shown on right) */}
@@ -241,48 +264,9 @@ export function Hero() {
             </motion.div>
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl text-left">
-              Grant Price delivers corporate-clean mentalism that gets executives leaning in, laughing together, and swapping &ldquo;how did he do that?&rdquo; stories for weeks.
+              Grant Price delivers corporate-clean mentalism that gets executives leaning in, laughing together, and swapping <em>&ldquo;how did he do that?&rdquo;</em> stories for weeks.
             </p>
 
-            {/* Trusted by - Desktop: after paragraph */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="hidden lg:block mt-8"
-            >
-              <h2 className="text-sm font-semibold text-muted-foreground mb-6 uppercase tracking-wide">
-                Trusted by
-              </h2>
-              <div className="max-w-5xl">
-                {/* First row - 6 logos */}
-                <div className="grid grid-cols-6 gap-8 mb-8">
-                  {clients.slice(0, 6).map((client) => (
-                    <div key={client.name} className="flex items-center justify-center p-4">
-                      <img
-                        src={client.image}
-                        alt={`${client.name} logo`}
-                        className={getLogoSizeClass(client.name, false)}
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
-                {/* Second row - 5 logos, centered */}
-                <div className="grid grid-cols-5 gap-8 px-[8.333%]">
-                  {clients.slice(6).map((client) => (
-                    <div key={client.name} className="flex items-center justify-center p-4">
-                      <img
-                        src={client.image}
-                        alt={`${client.name} logo`}
-                        className={getLogoSizeClass(client.name, false)}
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Right - Hero Image/Video - Desktop only */}
@@ -330,6 +314,49 @@ export function Hero() {
             </div>
           </motion.div>
         </div>
+
+        {/* Desktop Logo Scroller - below hero grid */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="hidden lg:block mt-10"
+        >
+          <h2 className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wide">
+            Trusted by
+          </h2>
+          <div className="relative overflow-hidden">
+            {/* Fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            
+            {/* Scrolling container - pauses on hover */}
+            <div className="flex gap-x-12 animate-scroll-logos hover:[animation-play-state:paused]">
+              {/* First set of logos */}
+              {clients.map((client) => (
+                <div key={client.name} className="flex-shrink-0 flex items-center justify-center py-4 px-6">
+                  <img
+                    src={client.image}
+                    alt={`${client.name} logo`}
+                    className={getLogoSizeClass(client.name, false, true)}
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop - hidden from screen readers */}
+              <div aria-hidden="true" className="flex gap-x-12">
+                {clients.map((client, idx) => (
+                  <div key={`dup-${idx}`} className="flex-shrink-0 flex items-center justify-center py-4 px-6">
+                    <img
+                      src={client.image}
+                      alt=""
+                      className={getLogoSizeClass(client.name, false, true)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -125,6 +125,23 @@
     display: none;  /* Chrome, Safari, Opera */
   }
 
+  /* Infinite logo scroll animation */
+  .animate-scroll-logos {
+    animation: scroll-logos 40s linear infinite;
+  }
+
+  @keyframes scroll-logos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-scroll-logos {
+      animation: none;
+    }
+  }
+
 }
 
 /* Honeybook Form Styles */
