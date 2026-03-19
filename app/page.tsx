@@ -23,7 +23,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="border border-secondary/20 rounded-xl bg-gradient-to-r from-secondary/5 to-primary/5 px-6 py-5 md:px-10 md:py-6 text-center">
             <p className="text-lg md:text-xl text-foreground font-serif font-semibold">
-              Your best event this year… or you don't pay.
+              Your best event this year&hellip; or you don&apos;t pay.
             </p>
           </div>
         </div>

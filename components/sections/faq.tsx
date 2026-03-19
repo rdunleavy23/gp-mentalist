@@ -64,9 +64,9 @@ export function FAQ() {
       answer: (
         <div className="space-y-2">
           <p>
-            Most companies book 2–4 months ahead, but I always do my best to accommodate tight timelines. If you have a date in mind, reach out — even if it's close.
+            Most companies book 2–4 months ahead, but I always do my best to accommodate tight timelines. If you have a date in mind, reach out — even if it&apos;s close.
           </p>
-          <p>My calendar moves fast, but there's always a chance I have a window that lines up perfectly with your event.</p>
+          <p>My calendar moves fast, but there&apos;s always a chance I have a window that lines up perfectly with your event.</p>
         </div>
       ),
     },
