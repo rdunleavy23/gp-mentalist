@@ -9,17 +9,17 @@ export function Services() {
     {
       number: "1",
       title: "Event Success Call",
-      description: "Quick chat about your event goals, audience vibe, and timeline. We'll map out what works best—no sales pitch, just clarity.",
+      description: "Quick chat about your event goals, audience vibe, and timeline.",
     },
     {
       number: "2",
       title: "Strolling Magic",
-      description: "Grant moves through your crowd with close-up miracles. Perfect for cocktail hours, networking breaks, or keeping energy high between sessions.",
+      description: "Perfect for cocktail hours, networking breaks, or keeping energy high between sessions.",
     },
     {
       number: "3",
       title: "Stage Show",
-      description: "A polished performance that brings the whole room together. Mind-reading, predictions, and moments your team will replay for weeks.",
+      description: "A polished performance that brings the whole room together.",
     },
   ]
 

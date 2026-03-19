@@ -164,6 +164,10 @@ export function Hero() {
               </span>
             </h1>
 
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl text-left mb-6">
+              High-end entertainment that gets executives leaning in and laughing together. <em>Your best event this year&hellip; or you don&apos;t pay.</em>
+            </p>
+
             {/* Hero Image - Mobile: between h1 and paragraph, Desktop: hidden (shown on right) */}
             <motion.div
               initial={{ opacity: 0, y: 12, scale: 0.98 }}
@@ -262,10 +266,6 @@ export function Hero() {
                 Swipe to see more →
               </p>
             </motion.div>
-
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl text-left">
-              Grant Price delivers corporate-clean mentalism that gets executives leaning in, laughing together, and swapping <em>&ldquo;how did he do that?&rdquo;</em> stories for weeks.
-            </p>
 
           </motion.div>
 

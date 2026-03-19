@@ -26,7 +26,7 @@ export function FAQ() {
       answer: (
         <div className="space-y-3">
           <p>
-            Corporate events have moving parts — I get it. If timing shifts, the AV team needs a minute, or your agenda takes a surprise turn, I roll with it.
+            Corporate events have moving parts — I get it. If timing shifts or your agenda takes a surprise turn, I roll with it.
           </p>
           <div>
             <p>I always build in:</p>
@@ -64,36 +64,24 @@ export function FAQ() {
       answer: (
         <div className="space-y-2">
           <p>
-            Most companies book 2–4 months ahead, but I always do my best to accommodate tight timelines. If you have a date in mind, reach out — even if it’s close.
+            Most companies book 2–4 months ahead, but I always do my best to accommodate tight timelines. If you have a date in mind, reach out — even if it's close.
           </p>
-          <p>My calendar moves fast, but there’s always a chance I have a window that lines up perfectly with your event.</p>
+          <p>My calendar moves fast, but there's always a chance I have a window that lines up perfectly with your event.</p>
         </div>
       ),
     },
     {
-      question: "What’s included in your fee?",
+      question: "What's included in your fee?",
       answer: (
         <div className="space-y-2">
           <p>Everything you need for a smooth, successful show:</p>
           <ul className="list-disc pl-5 space-y-1">
             <li>performance time</li>
             <li>all props and materials</li>
-            <li>travel (if we include it in the quote)</li>
-            <li>coordination with your team + AV</li>
+            <li>coordination with your team</li>
             <li>custom elements tailored to your audience</li>
           </ul>
-          <p>No surprise add-ons. No “premium upgrades.” Just a clean, straightforward fee for a polished corporate experience.</p>
-        </div>
-      ),
-    },
-    {
-      question: "How do you work with AV teams?",
-      answer: (
-        <div className="space-y-2">
-          <p>
-            I love AV teams. Truly. They’re the heroes of every event. I send specs ahead of time, arrive early, check cues with your crew, and make adjustments on the fly so everything runs smoothly. I speak “AV,” which makes life easier for everyone.
-          </p>
-          <p>Happy AV team = happy planner = great show.</p>
+          <p>No surprise add-ons. No &ldquo;premium upgrades.&rdquo; Just a clean, straightforward fee for a polished corporate experience.</p>
         </div>
       ),
     },

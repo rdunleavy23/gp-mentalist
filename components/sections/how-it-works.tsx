@@ -145,13 +145,25 @@ export function HowItWorks() {
           })}
         </div>
 
+        {/* Guarantee */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          viewport={{ once: true }}
+          className="mt-12 md:mt-16 mb-6"
+        >
+          <p className="text-center text-base md:text-lg text-foreground/70 font-medium">
+            Your best event this year&hellip; or you don&apos;t pay.
+          </p>
+        </motion.div>
+
         {/* Contact Form Accordion */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-12 md:mt-16"
         >
           <CTAForm />
           <p className="mt-3 text-sm text-muted-foreground text-center">

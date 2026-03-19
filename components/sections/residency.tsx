@@ -25,13 +25,13 @@ export function Residency() {
                   </div>
 
                   <h3 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
-                    Live! by Loew&apos;s
+                    Mental Magic at Live! by Loew&apos;s
                   </h3>
-                  <p className="text-lg text-muted-foreground mb-4">
-                    Arlington, TX
+                  <p className="text-base md:text-lg text-muted-foreground mb-4">
+                    An Evening of Mind-Reading &amp; Comedy
                   </p>
                   <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                    Catch Grant&apos;s signature show in person at his residency. See why teams come back with friends.
+                    Catch Grant&apos;s signature residency show in person in Arlington, TX.
                   </p>
                 </div>
 

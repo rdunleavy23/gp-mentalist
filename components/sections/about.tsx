@@ -1,15 +1,48 @@
 "use client"
 
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { useRef, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 
+const bioParagraphs = {
+  teaser: (
+    <p>
+      Grant fell into a vat of toxic waste when he was 4.
+    </p>
+  ),
+  rest: [
+    <p key="origin">
+      Okay, not really. His sister taught him a card trick, and he immediately showed everyone.
+    </p>,
+    <p key="career">
+      People started saying &ldquo;you should do this for a living&rdquo; when he was 6. A few years later, Grant did his first paid show for his friends and family. In college, his friends called him &ldquo;Abracadabra&rdquo; while he built his entertainment career. Now, over a decade later, he makes corporate audiences excited for their next company event.
+    </p>,
+    <p key="different">
+      What makes Grant different? Grant cares about serving people most of all. His mission is to give you the premium event you dream of throwing instead of just another casual party. Past clients call him &ldquo;quick-witted,&rdquo; &ldquo;insanely talented&rdquo;, and &ldquo;tall hair&rdquo; (which he chooses to take as a compliment).
+    </p>,
+    <p key="theory">
+      Grant&apos;s theory: the best corporate events happen when people remember they&apos;re allowed to feel wonder. A good entertainer makes everyone feel engaged and makes no one feel embarrassed. In jobs where it&apos;s easy to get caught in the day to day, Grant brings mystery, laughter, and a reminder that spreadsheets aren&apos;t the only thing worth paying attention to.
+    </p>,
+    <p key="personal">
+      When he&apos;s not reading your mind, Grant lives in the Dallas/Fort Worth area with his beautiful wife and 4 amazing kids. He roasts coffee, woodworks, and takes care of his many pets.
+    </p>,
+  ],
+}
+
 export function About() {
   const [isExpanded, setIsExpanded] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  function handleToggle() {
+    if (isExpanded) {
+      sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+    setIsExpanded((prev) => !prev)
+  }
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           {/* Left - Text (60%) */}
@@ -23,82 +56,47 @@ export function About() {
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-3">
               Meet Grant Price
             </h2>
-            
-            {/* Mobile: Collapsible content */}
-            <div className="lg:hidden">
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  Grant lives in the Dallas/Fort Worth area with his wife and 4 kids. He roasts coffee, builds stuff out of wood, and would love to add sleep to that list if anyone has tips.
-                </p>
 
-                {/* Expandable content */}
-                <div
-                  className={`space-y-4 overflow-hidden transition-all duration-300 ${
-                    isExpanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <p>
-                    Grant fell into a vat of toxic waste when he was 4.
-                  </p>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              {bioParagraphs.teaser}
 
-                  <p>
-                    Okay, not really. His sister taught him a card trick, and he immediately became the most insufferable 4-year-old at the library. (He checked out every magic book. Twice. The librarians still remember him, and not fondly.)
-                  </p>
-
-                  <p>
-                    People started saying &ldquo;you should do this for a living&rdquo; when he was 6. Which is either adorable or a sign that adults will say literally anything to a kid with a deck of cards. Either way, here he is&mdash;15+ years later&mdash;somehow making corporate audiences forget about their inbox for 45 minutes.
-                  </p>
-
-                  <p>
-                    What makes Grant different? Honestly, he&apos;s just as confused as you are about how this works. Past clients call him &ldquo;quick-witted,&rdquo; &ldquo;interactive,&rdquo; and &ldquo;surprisingly hilarious&rdquo; (which he chooses to take as a compliment).
-                  </p>
-
-                  <p>
-                    Grant&apos;s theory: the best corporate events happen when people remember they&apos;re allowed to feel wonder. In jobs where it&apos;s easy to become a little crusty, he brings mystery, laughter, and a reminder that spreadsheets aren&apos;t the only thing worth paying attention to.
-                  </p>
-                </div>
+              {/* Desktop: always show all paragraphs */}
+              <div className="hidden lg:block space-y-4">
+                {bioParagraphs.rest}
               </div>
-
-              {/* Read More button */}
-              <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="mt-4 flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
-              >
-                <span>{isExpanded ? "Read Less" : "Read More"}</span>
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-300 ${
-                    isExpanded ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
             </div>
 
-            {/* Desktop: Full content always visible */}
-            <div className="hidden lg:block space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Grant fell into a vat of toxic waste when he was 4.
-              </p>
+            {/* Mobile: animated expand/collapse */}
+            <AnimatePresence initial={false}>
+              {isExpanded && (
+                <motion.div
+                  key="bio-expanded"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="overflow-hidden lg:!hidden"
+                >
+                  <div className="space-y-4 text-muted-foreground leading-relaxed mt-4">
+                    {bioParagraphs.rest}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-              <p>
-                Okay, not really. His sister taught him a card trick, and he immediately became the most insufferable 4-year-old at the library. (He checked out every magic book. Twice. The librarians still remember him, and not fondly.)
-              </p>
-
-              <p>
-                People started saying &ldquo;you should do this for a living&rdquo; when he was 6. Which is either adorable or a sign that adults will say literally anything to a kid with a deck of cards. Either way, here he is&mdash;15+ years later&mdash;somehow making corporate audiences forget about their inbox for 45 minutes.
-              </p>
-
-              <p>
-                What makes Grant different? Honestly, he&apos;s just as confused as you are about how this works. Past clients call him &ldquo;quick-witted,&rdquo; &ldquo;interactive,&rdquo; and &ldquo;surprisingly hilarious&rdquo; (which he chooses to take as a compliment).
-              </p>
-
-              <p>
-                Grant&apos;s theory: the best corporate events happen when people remember they&apos;re allowed to feel wonder. In jobs where it&apos;s easy to become a little crusty, he brings mystery, laughter, and a reminder that spreadsheets aren&apos;t the only thing worth paying attention to.
-              </p>
-
-              <p>
-                Grant lives in the Dallas/Fort Worth area with his wife and 4 kids. He roasts coffee, builds stuff out of wood, and would love to add sleep to that list if anyone has tips.
-              </p>
-            </div>
+            {/* Read More / Less — mobile only */}
+            <button
+              onClick={handleToggle}
+              aria-expanded={isExpanded}
+              className="mt-4 lg:hidden flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
+            >
+              <span>{isExpanded ? "Read Less" : "Read More"}</span>
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-300 ${
+                  isExpanded ? "rotate-180" : ""
+                }`}
+              />
+            </button>
           </motion.div>
 
           {/* Right - Image and Trust Signals (40%) */}
