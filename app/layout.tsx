@@ -21,6 +21,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Grant Price",
   description: "Corporate event mentalist and mind reader.",
+  icons: {
+    icon: "/favicon.png",
+  },
   // Removed keywords to prevent indexing
   // Removed authors to reduce discoverability
   // Minimized Open Graph to prevent social media scraping
