@@ -137,7 +137,7 @@ export function About() {
               <button
                 onClick={handleToggle}
                 aria-expanded={isExpanded}
-                className="mt-5 flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
+                className="mt-5 mx-auto flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
               >
                 <span>{isExpanded ? "Read Less" : "Read More"}</span>
                 <ChevronDown

@@ -55,21 +55,15 @@ export function Navigation() {
             aria-label="Grant Price - Home"
           >
             <span className="flex items-center gap-2">
-              <Image
+              <img
                 src="/favicon.png"
                 alt=""
-                width={36}
-                height={36}
-                className="h-8 w-auto md:h-9"
-                priority
+                className="h-8 w-auto md:h-9 block"
               />
-              <Image
+              <img
                 src="/images/logos/grant-price-logo.svg"
                 alt="Grant Price"
-                width={180}
-                height={36}
-                className="h-8 w-auto md:h-9 md:w-[180px]"
-                priority
+                className="h-7 w-auto md:h-8 block translate-y-[2px]"
               />
             </span>
           </a>
