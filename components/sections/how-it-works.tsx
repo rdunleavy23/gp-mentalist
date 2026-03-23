@@ -166,9 +166,6 @@ export function HowItWorks() {
           viewport={{ once: true }}
         >
           <CTAForm />
-          <p className="mt-3 text-sm text-muted-foreground text-center">
-            Quick reply, no pressure—just availability and options
-          </p>
         </motion.div>
       </div>
     </section>

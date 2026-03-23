@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react"
 
 export function Hero() {
   const scrollRef = useRef<HTMLDivElement>(null)
+  const firstSetRef = useRef<HTMLDivElement>(null)
 
   // Light auto-scroll that pauses on user interaction (mobile only)
   useEffect(() => {
@@ -33,7 +34,8 @@ export function Hero() {
         const elapsed = currentTime - lastScrollTime
         if (elapsed >= 50) {
           const scrollAmount = 1
-          const maxScroll = container.scrollWidth / 2
+          const firstSet = firstSetRef.current
+          const maxScroll = firstSet ? firstSet.offsetWidth : container.scrollWidth / 2
           
           container.scrollLeft += scrollAmount
           
@@ -226,39 +228,64 @@ export function Hero() {
                 <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
                 <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
                 
+                {/* OLD MOBILE MARQUEE START
                 <div className="overflow-hidden">
                   <div 
                     ref={scrollRef}
                     className="flex gap-3 overflow-x-auto pb-4 px-4 scrollbar-hide"
+                    style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'auto' }}
+                  >
+                    {clients.map((client, idx) => (
+                      <div key={`first-${idx}`} className={`flex-shrink-0 flex items-center justify-center py-2 ${getLogoSpacing(client.name)}`}>
+                        <img src={client.image} alt={`${client.name} logo`} className={getLogoSizeClass(client.name, true)} />
+                      </div>
+                    ))}
+                    {clients.map((client, idx) => (
+                      <div key={`second-${idx}`} className={`flex-shrink-0 flex items-center justify-center py-2 ${getLogoSpacing(client.name)}`}>
+                        <img src={client.image} alt={`${client.name} logo`} className={getLogoSizeClass(client.name, true)} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                OLD MOBILE MARQUEE END */}
+
+                <div className="overflow-hidden">
+                  <div 
+                    ref={scrollRef}
+                    className="flex overflow-x-auto pb-4 px-4 scrollbar-hide"
                     style={{ 
                       WebkitOverflowScrolling: 'touch',
                       scrollBehavior: 'auto'
                     }}
                   >
-                    {clients.map((client, idx) => (
-                      <div 
-                        key={`first-${idx}`}
-                        className={`flex-shrink-0 flex items-center justify-center py-2 ${getLogoSpacing(client.name)}`}
-                      >
-                        <img
-                          src={client.image}
-                          alt={`${client.name} logo`}
-                          className={getLogoSizeClass(client.name, true)}
-                        />
-                      </div>
-                    ))}
-                    {clients.map((client, idx) => (
-                      <div 
-                        key={`second-${idx}`}
-                        className={`flex-shrink-0 flex items-center justify-center py-2 ${getLogoSpacing(client.name)}`}
-                      >
-                        <img
-                          src={client.image}
-                          alt={`${client.name} logo`}
-                          className={getLogoSizeClass(client.name, true)}
-                        />
-                      </div>
-                    ))}
+                    <div ref={firstSetRef} className="flex gap-3 pr-3 shrink-0">
+                      {clients.map((client, idx) => (
+                        <div 
+                          key={`first-${idx}`}
+                          className={`flex-shrink-0 flex items-center justify-center py-2 ${getLogoSpacing(client.name)}`}
+                        >
+                          <img
+                            src={client.image}
+                            alt={`${client.name} logo`}
+                            className={getLogoSizeClass(client.name, true)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div aria-hidden="true" className="flex gap-3 pr-3 shrink-0">
+                      {clients.map((client, idx) => (
+                        <div 
+                          key={`second-${idx}`}
+                          className={`flex-shrink-0 flex items-center justify-center py-2 ${getLogoSpacing(client.name)}`}
+                        >
+                          <img
+                            src={client.image}
+                            alt={`${client.name} logo`}
+                            className={getLogoSizeClass(client.name, true)}
+                          />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -330,9 +357,8 @@ export function Hero() {
             <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
             
-            {/* Scrolling container - pauses on hover */}
+            {/* OLD DESKTOP MARQUEE START
             <div className="flex gap-x-12 animate-scroll-logos hover:[animation-play-state:paused]">
-              {/* First set of logos */}
               {clients.map((client) => (
                 <div key={client.name} className="flex-shrink-0 flex items-center justify-center py-4 px-6">
                   <img
@@ -342,8 +368,34 @@ export function Hero() {
                   />
                 </div>
               ))}
-              {/* Duplicate set for seamless loop - hidden from screen readers */}
               <div aria-hidden="true" className="flex gap-x-12">
+                {clients.map((client, idx) => (
+                  <div key={`dup-${idx}`} className="flex-shrink-0 flex items-center justify-center py-4 px-6">
+                    <img
+                      src={client.image}
+                      alt=""
+                      className={getLogoSizeClass(client.name, false, true)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            OLD DESKTOP MARQUEE END */}
+
+            {/* Scrolling container - each half is an identical wrapper so translateX(-50%) loops perfectly */}
+            <div className="flex animate-scroll-logos hover:[animation-play-state:paused]">
+              <div className="flex gap-x-12 pr-12 shrink-0">
+                {clients.map((client) => (
+                  <div key={client.name} className="flex-shrink-0 flex items-center justify-center py-4 px-6">
+                    <img
+                      src={client.image}
+                      alt={`${client.name} logo`}
+                      className={getLogoSizeClass(client.name, false, true)}
+                    />
+                  </div>
+                ))}
+              </div>
+              <div aria-hidden="true" className="flex gap-x-12 pr-12 shrink-0">
                 {clients.map((client, idx) => (
                   <div key={`dup-${idx}`} className="flex-shrink-0 flex items-center justify-center py-4 px-6">
                     <img

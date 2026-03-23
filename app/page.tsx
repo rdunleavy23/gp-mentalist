@@ -8,7 +8,7 @@ import { Stats } from "@/components/sections/stats"
 import { About } from "@/components/sections/about"
 import { Residency } from "@/components/sections/residency"
 import { FAQ } from "@/components/sections/faq"
-import { StickyMobileCTA } from "@/components/sticky-mobile-cta"
+
 
 export default function Home() {
   return (
@@ -32,7 +32,6 @@ export default function Home() {
       <Residency />
       <FAQ />
       <HowItWorks />
-      <StickyMobileCTA />
     </main>
   )
 }

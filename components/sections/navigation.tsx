@@ -54,14 +54,24 @@ export function Navigation() {
             className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
             aria-label="Grant Price - Home"
           >
-            <Image
-              src="/images/logos/grant-price-logo.svg"
-              alt="Grant Price"
-              width={180}
-              height={36}
-              className="h-8 w-auto md:h-9 md:w-[180px]"
-              priority
-            />
+            <span className="flex items-center gap-2">
+              <Image
+                src="/favicon.png"
+                alt=""
+                width={36}
+                height={36}
+                className="h-8 w-auto md:h-9"
+                priority
+              />
+              <Image
+                src="/images/logos/grant-price-logo.svg"
+                alt="Grant Price"
+                width={180}
+                height={36}
+                className="h-8 w-auto md:h-9 md:w-[180px]"
+                priority
+              />
+            </span>
           </a>
 
           {/* Desktop Navigation */}

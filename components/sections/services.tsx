@@ -14,7 +14,7 @@ export function Services() {
     {
       number: "2",
       title: "Strolling Magic",
-      description: "Perfect for cocktail hours, networking breaks, or keeping energy high between sessions.",
+      description: "Interactive magic that gets everyone talking and laughing together.",
     },
     {
       number: "3",
