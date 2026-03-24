@@ -15,9 +15,19 @@ export function ReactionSection() {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
-            Watch Grant in Action
-          </h2>
+          <div className="relative inline-block">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+              Watch Grant in Action
+            </h2>
+            <svg
+              className="absolute -right-10 md:-right-14 top-0 w-8 h-16 md:w-10 md:h-20 text-primary"
+              viewBox="0 0 40 72"
+              fill="none"
+            >
+              <path d="M4 8C16 4 36 10 32 28C28 44 16 52 20 64" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M13 58C16 61 19 64 20 66C22 63 25 59 27 57" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
         </motion.div>
 
         <motion.div
