@@ -39,7 +39,7 @@ export function HowItWorks() {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section id="how-it-works" className="py-16 md:py-24 bg-gray-50">
       {/* Make the process feel easy, responsive, and tailored for planners */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

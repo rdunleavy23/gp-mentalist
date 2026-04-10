@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion"
 import { MapPin, ExternalLink } from "lucide-react"
+import { event } from "@/lib/gtag"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
 export function Residency() {
   return (
-    <section className="py-12 md:py-16 bg-white">
+    <section id="residency" className="py-12 md:py-16 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,6 +58,7 @@ export function Residency() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center space-x-2"
+                      onClick={() => event("outbound_click", { link_url: "https://magiciangrantprice.com/mental-magic/", link_location: "residency_cta" })}
                     >
                       <span>See live dates</span>
                       <ExternalLink className="h-4 w-4" />
@@ -106,6 +108,7 @@ export function Residency() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center space-x-2"
+                      onClick={() => event("outbound_click", { link_url: "https://magiciangrantprice.com/mental-magic/", link_location: "residency_cta" })}
                     >
                       <span>See live dates</span>
                       <ExternalLink className="h-4 w-4" />

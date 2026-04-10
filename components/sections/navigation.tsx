@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { event } from "@/lib/gtag"
 import Image from "next/image"
 
 export function Navigation() {
@@ -53,6 +54,7 @@ export function Navigation() {
             rel="noopener noreferrer"
             className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
             aria-label="Grant Price - Home"
+            onClick={() => event("outbound_click", { link_url: "https://magiciangrantprice.com/", link_location: "nav_logo" })}
           >
             <span className="flex items-center gap-2">
               <img
@@ -85,7 +87,10 @@ export function Navigation() {
           <div className="hidden md:block">
             <Button
               size="lg"
-              onClick={() => scrollToSection("contact")}
+              onClick={() => {
+                event("cta_click", { cta_location: "nav_desktop", cta_text: "Book Grant" })
+                scrollToSection("contact")
+              }}
               className="font-semibold"
             >
               Book Grant
@@ -123,7 +128,10 @@ export function Navigation() {
             ))}
             <Button
               size="lg"
-              onClick={() => scrollToSection("contact")}
+              onClick={() => {
+                event("cta_click", { cta_location: "nav_mobile", cta_text: "Book Grant" })
+                scrollToSection("contact")
+              }}
               className="w-full mt-2"
             >
               Book Grant

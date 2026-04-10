@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Rubik, Inter } from "next/font/google"
+import { GoogleAnalytics } from "@/components/analytics/google-analytics"
 import "./globals.css"
 
 // Rubik: Friendly, rounded headings (weights 600-800)
@@ -54,7 +55,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${rubik.variable} ${inter.variable}`}>
-      <body className={`${inter.className} font-sans`}>{children}</body>
+      <body className={`${inter.className} font-sans`}>
+        <GoogleAnalytics />
+        {children}
+      </body>
     </html>
   )
 }

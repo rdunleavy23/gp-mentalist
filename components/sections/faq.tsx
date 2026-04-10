@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { event } from "@/lib/gtag"
 import {
   Accordion,
   AccordionContent,
@@ -88,7 +89,7 @@ export function FAQ() {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section id="faq" className="py-16 md:py-24 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -111,7 +112,17 @@ export function FAQ() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full"
+            onValueChange={(value) => {
+              if (value) {
+                const idx = parseInt(value.replace("item-", ""), 10)
+                event("faq_open", { question_index: idx, question_text: faqs[idx]?.question })
+              }
+            }}
+          >
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="text-left text-base md:text-lg font-semibold">

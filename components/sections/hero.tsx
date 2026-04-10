@@ -130,7 +130,7 @@ export function Hero() {
     { name: "Olipop", image: "/images/logos/olipop.png" },
   ]
   return (
-    <section className="relative pt-24 pb-6 md:pt-32 md:pb-8 bg-white">
+    <section id="hero" className="relative pt-24 pb-6 md:pt-32 md:pb-8 bg-white">
       {/* Set the tone early: warm, skilled, and easy to work with for corporate rooms */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-14 items-start">

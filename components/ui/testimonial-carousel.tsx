@@ -5,6 +5,7 @@ import * as React from "react"
 import { motion, PanInfo } from "framer-motion"
 
 import { cn } from "@/lib/utils"
+import { event } from "@/lib/gtag"
 
 interface Testimonial {
   id: number | string
@@ -32,24 +33,30 @@ const TestimonialCarousel = React.forwardRef<
     const [exitX, setExitX] = React.useState<number>(0)
 
     const handleDragEnd = (
-      event: MouseEvent | TouchEvent | PointerEvent,
+      dragEvent: MouseEvent | TouchEvent | PointerEvent,
       info: PanInfo,
     ) => {
       if (Math.abs(info.offset.x) > 100) {
         setExitX(info.offset.x)
+        const nextIndex = (currentIndex + 1) % testimonials.length
+        event("testimonial_interact", { action: "swipe", slide_index: nextIndex })
         setTimeout(() => {
-          setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+          setCurrentIndex(nextIndex)
           setExitX(0)
         }, 200)
       }
     }
 
     const goToNext = () => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+      const nextIndex = (currentIndex + 1) % testimonials.length
+      event("testimonial_interact", { action: "arrow", slide_index: nextIndex })
+      setCurrentIndex(nextIndex)
     }
 
     const goToPrev = () => {
-      setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+      const prevIndex = (currentIndex - 1 + testimonials.length) % testimonials.length
+      event("testimonial_interact", { action: "arrow", slide_index: prevIndex })
+      setCurrentIndex(prevIndex)
     }
 
     return (
@@ -155,7 +162,10 @@ const TestimonialCarousel = React.forwardRef<
               {testimonials.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentIndex(index)}
+                  onClick={() => {
+                    event("testimonial_interact", { action: "dot", slide_index: index })
+                    setCurrentIndex(index)
+                  }}
                   className={cn(
                     "w-2 h-2 rounded-full transition-colors",
                     index === currentIndex

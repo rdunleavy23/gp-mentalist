@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { cn } from "@/lib/utils"
+import { event } from "@/lib/gtag"
 
 // Honeybook placement ID
 const HONEYBOOK_PID = "6482483948520f1939f63594"
@@ -22,6 +23,19 @@ export function CTAForm() {
   )
   const [isScriptLoaded, setIsScriptLoaded] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
+  const openedAtRef = useRef<number | null>(null)
+
+  const handleAccordionChange = (value: string | undefined) => {
+    if (value === "honeybook-form") {
+      openedAtRef.current = Date.now()
+      event("contact_accordion_open")
+    } else if (accordionValue === "honeybook-form" && !value) {
+      const timeOpenMs = openedAtRef.current ? Date.now() - openedAtRef.current : 0
+      openedAtRef.current = null
+      event("contact_accordion_close", { time_open_ms: timeOpenMs })
+    }
+    setAccordionValue(value)
+  }
 
   // Listen for custom event to open accordion
   useEffect(() => {
@@ -107,9 +121,11 @@ export function CTAForm() {
         onLoad={() => {
           console.log("Honeybook script loaded")
           setIsScriptLoaded(true)
+          event("honeybook_widget_loaded")
         }}
         onError={() => {
           console.error("Honeybook script failed to load")
+          event("honeybook_widget_failed")
         }}
       />
       
@@ -118,7 +134,7 @@ export function CTAForm() {
             type="single"
             collapsible
             value={accordionValue}
-            onValueChange={setAccordionValue}
+            onValueChange={handleAccordionChange}
             className="w-full"
           >
             <AccordionItem value="honeybook-form" className="border-none">

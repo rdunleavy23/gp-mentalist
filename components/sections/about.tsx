@@ -4,6 +4,7 @@ import { useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
+import { event } from "@/lib/gtag"
 
 export function About() {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -17,7 +18,7 @@ export function About() {
   }
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-gray-50">
+    <section id="about" ref={sectionRef} className="py-16 md:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
           {/* Image */}
@@ -135,7 +136,10 @@ export function About() {
               </AnimatePresence>
 
               <button
-                onClick={handleToggle}
+                onClick={() => {
+                  if (!isExpanded) event("about_read_more")
+                  handleToggle()
+                }}
                 aria-expanded={isExpanded}
                 className="mt-5 mx-auto flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
               >

@@ -4,6 +4,7 @@ import { motion } from "motion/react"
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns"
 import { allReviews } from "@/lib/reviews"
 import { Button } from "@/components/ui/button"
+import { event } from "@/lib/gtag"
 
 export function Testimonials() {
   const scrollToSection = (id: string) => {
@@ -83,7 +84,10 @@ export function Testimonials() {
         >
           <Button
             size="lg"
-            onClick={() => scrollToSection("contact")}
+            onClick={() => {
+              event("cta_click", { cta_location: "testimonials_section", cta_text: "Book Grant" })
+              scrollToSection("contact")
+            }}
             className="text-base md:text-lg font-semibold px-8 py-6"
           >
             Book Grant
