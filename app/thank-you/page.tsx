@@ -4,9 +4,8 @@ import { useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { CheckCircle2, Mail, Calendar, Sparkles, Users, Building2, Award } from "lucide-react"
+import { CheckCircle2, Sparkles } from "lucide-react"
 import { adsConversion } from "@/lib/gtag"
-import { Footer } from "@/components/sections/footer"
 
 export default function ThankYouPage() {
   const firedRef = useRef(false)
@@ -56,33 +55,9 @@ export default function ThankYouPage() {
     })
   }, [])
 
-  const nextSteps = [
-    {
-      icon: CheckCircle2,
-      title: "Your request is in",
-      body: "Your inquiry has been received and is already on Grant's desk.",
-    },
-    {
-      icon: Mail,
-      title: "Personal reply within 24 hours",
-      body: "Grant reads every inquiry himself. Expect a thoughtful response, not a template, usually within one business day.",
-    },
-    {
-      icon: Calendar,
-      title: "Quick call to lock the details",
-      body: "From there we'll confirm date, venue, audience size, and the style of performance that fits your event.",
-    },
-  ]
-
-  const stats = [
-    { icon: Users, value: "70,000+", label: "People Entertained" },
-    { icon: Building2, value: "50+", label: "Fortune 500 Companies" },
-    { icon: Award, value: "15 Years", label: "Professional Experience" },
-  ]
-
   return (
     <main className="min-h-screen bg-background flex flex-col">
-      <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      <section className="relative overflow-hidden pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-secondary/10 blur-3xl" />
@@ -105,7 +80,7 @@ export default function ThankYouPage() {
             className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-[1.1] tracking-tight mb-4"
             style={{ textWrap: "balance" } as React.CSSProperties}
           >
-            Thanks &mdash; your message is in.
+            Thanks! Your message is in.
           </motion.h1>
 
           <motion.p
@@ -114,7 +89,7 @@ export default function ThankYouPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-2"
           >
-            Grant will personally review your event details and reply within one business day.
+            Our team will review your event details and reply within one business day.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -130,7 +105,7 @@ export default function ThankYouPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-3 justify-center"
+            className="flex justify-center"
           >
             <Link
               href="/"
@@ -138,82 +113,7 @@ export default function ThankYouPage() {
             >
               Back to home
             </Link>
-            <Link
-              href="/#reactions"
-              className="inline-flex items-center justify-center rounded-md border border-foreground/15 bg-background px-6 py-3 text-base font-semibold text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 min-h-[48px]"
-            >
-              See reactions
-            </Link>
           </motion.div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-20 bg-background">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="font-serif text-3xl md:text-4xl font-bold text-foreground text-center mb-10 md:mb-14"
-          >
-            What happens next
-          </motion.h2>
-
-          <ol className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {nextSteps.map((step, index) => {
-              const Icon = step.icon
-              return (
-                <motion.li
-                  key={step.title}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative rounded-xl border border-border bg-card p-6 md:p-7 shadow-sm"
-                >
-                  <div className="absolute -top-3 -left-3 w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-md">
-                    {index + 1}
-                  </div>
-                  <Icon className="w-8 h-8 text-secondary mb-4" strokeWidth={2} />
-                  <h3 className="font-serif text-xl font-bold text-foreground mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    {step.body}
-                  </p>
-                </motion.li>
-              )
-            })}
-          </ol>
-        </div>
-      </section>
-
-      <section className="py-14 md:py-20 bg-[#0A0E27]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-3 gap-8 md:gap-12">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <Icon className="h-10 w-10 md:h-12 md:w-12 text-white mx-auto mb-3 opacity-90" />
-                  <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm md:text-base text-white/90 font-medium">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
         </div>
       </section>
 
@@ -243,17 +143,13 @@ export default function ThankYouPage() {
                   A quick note from Grant
                 </p>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  &ldquo;Thanks for reaching out. Planning the right entertainment for a corporate
-                  event is a big decision &mdash; I take that seriously. I&apos;ll read your note
-                  myself and reply with a real, thoughtful response. Talk soon.&rdquo;
+                  &ldquo;Thanks for reaching out. Talk soon.&rdquo;
                 </p>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
-
-      <Footer />
     </main>
   )
 }
