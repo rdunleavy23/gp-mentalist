@@ -1,0 +1,259 @@
+"use client"
+
+import { useEffect, useRef } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import { CheckCircle2, Mail, Calendar, Sparkles, Users, Building2, Award } from "lucide-react"
+import { adsConversion } from "@/lib/gtag"
+import { Footer } from "@/components/sections/footer"
+
+export default function ThankYouPage() {
+  const firedRef = useRef(false)
+
+  useEffect(() => {
+    if (firedRef.current) return
+    firedRef.current = true
+
+    if (typeof window === "undefined" || typeof window.gtag !== "function") {
+      return
+    }
+
+    const params = new URLSearchParams(window.location.search)
+    const email = params.get("email")
+    const phone = params.get("phone")
+    const name = params.get("name")
+
+    if (email || phone || name) {
+      const trimmedName = (name ?? "").trim()
+      const [firstName, ...rest] = trimmedName.split(" ")
+      const lastName = rest.join(" ")
+
+      window.gtag("set", "user_data", {
+        ...(email && { email: email.trim().toLowerCase() }),
+        ...(phone && { phone_number: phone }),
+        ...(trimmedName && {
+          address: {
+            first_name: firstName,
+            last_name: lastName,
+          },
+        }),
+      })
+    }
+
+    const transactionId =
+      typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random().toString(36).slice(2)}`
+
+    adsConversion("AW-988155850/mP5lCOPEq60ZEMqfmNcD", {
+      transaction_id: transactionId,
+    })
+
+    window.gtag("event", "generate_lead", {
+      event_category: "engagement",
+      event_label: "honeybook_form_submission",
+    })
+  }, [])
+
+  const nextSteps = [
+    {
+      icon: CheckCircle2,
+      title: "Your request is in",
+      body: "Your inquiry has been received and is already on Grant's desk.",
+    },
+    {
+      icon: Mail,
+      title: "Personal reply within 24 hours",
+      body: "Grant reads every inquiry himself. Expect a thoughtful response, not a template, usually within one business day.",
+    },
+    {
+      icon: Calendar,
+      title: "Quick call to lock the details",
+      body: "From there we'll confirm date, venue, audience size, and the style of performance that fits your event.",
+    },
+  ]
+
+  const stats = [
+    { icon: Users, value: "70,000+", label: "People Entertained" },
+    { icon: Building2, value: "50+", label: "Fortune 500 Companies" },
+    { icon: Award, value: "15 Years", label: "Professional Experience" },
+  ]
+
+  return (
+    <main className="min-h-screen bg-background flex flex-col">
+      <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-secondary/10 blur-3xl" />
+        </div>
+
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-secondary/15 mb-6"
+          >
+            <CheckCircle2 className="w-10 h-10 md:w-12 md:h-12 text-secondary" strokeWidth={2.5} />
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-[1.1] tracking-tight mb-4"
+            style={{ textWrap: "balance" } as React.CSSProperties}
+          >
+            Thanks &mdash; your message is in.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-2"
+          >
+            Grant will personally review your event details and reply within one business day.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-base md:text-lg text-muted-foreground/80 max-w-2xl mx-auto mb-8"
+          >
+            In the meantime, check your inbox for a confirmation. If you don&apos;t see it, peek at the
+            spam folder just in case.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-3 justify-center"
+          >
+            <Link
+              href="/"
+              className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 min-h-[48px]"
+            >
+              Back to home
+            </Link>
+            <Link
+              href="/#reactions"
+              className="inline-flex items-center justify-center rounded-md border border-foreground/15 bg-background px-6 py-3 text-base font-semibold text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 min-h-[48px]"
+            >
+              See reactions
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-background">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="font-serif text-3xl md:text-4xl font-bold text-foreground text-center mb-10 md:mb-14"
+          >
+            What happens next
+          </motion.h2>
+
+          <ol className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {nextSteps.map((step, index) => {
+              const Icon = step.icon
+              return (
+                <motion.li
+                  key={step.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative rounded-xl border border-border bg-card p-6 md:p-7 shadow-sm"
+                >
+                  <div className="absolute -top-3 -left-3 w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-md">
+                    {index + 1}
+                  </div>
+                  <Icon className="w-8 h-8 text-secondary mb-4" strokeWidth={2} />
+                  <h3 className="font-serif text-xl font-bold text-foreground mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    {step.body}
+                  </p>
+                </motion.li>
+              )
+            })}
+          </ol>
+        </div>
+      </section>
+
+      <section className="py-14 md:py-20 bg-[#0A0E27]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-3 gap-8 md:gap-12">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon
+              return (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="text-center"
+                >
+                  <Icon className="h-10 w-10 md:h-12 md:w-12 text-white mx-auto mb-3 opacity-90" />
+                  <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm md:text-base text-white/90 font-medium">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="relative overflow-hidden rounded-2xl border border-secondary/20 bg-gradient-to-r from-secondary/5 to-primary/5 p-8 md:p-12"
+          >
+            <Sparkles className="absolute top-6 right-6 w-10 h-10 text-accent/60" aria-hidden="true" />
+            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+              <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0 rounded-full overflow-hidden shadow-lg bg-muted">
+                <Image
+                  src="/images/photos/bio-headshot.avif"
+                  alt="Grant Price"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 96px, 128px"
+                  unoptimized
+                />
+              </div>
+              <div className="text-center md:text-left">
+                <p className="font-serif text-xl md:text-2xl font-bold text-foreground mb-2">
+                  A quick note from Grant
+                </p>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                  &ldquo;Thanks for reaching out. Planning the right entertainment for a corporate
+                  event is a big decision &mdash; I take that seriously. I&apos;ll read your note
+                  myself and reply with a real, thoughtful response. Talk soon.&rdquo;
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  )
+}

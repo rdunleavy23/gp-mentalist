@@ -1,9 +1,6 @@
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
-type GtagEvent = {
-  action: string
-  params?: Record<string, unknown>
-}
+export const GOOGLE_ADS_ID = "AW-988155850"
 
 declare global {
   interface Window {
@@ -19,4 +16,12 @@ export function event(name: string, params?: Record<string, unknown>) {
 
 export function sectionView(sectionName: string) {
   event("section_view", { section_name: sectionName })
+}
+
+export function adsConversion(
+  sendTo: string,
+  params?: Record<string, unknown>
+) {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return
+  window.gtag("event", "conversion", { send_to: sendTo, ...params })
 }

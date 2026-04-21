@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import Script from "next/script"
 import {
   Accordion,
@@ -21,14 +21,27 @@ export function CTAForm() {
   const [accordionValue, setAccordionValue] = useState<string | undefined>(
     undefined
   )
-  const [isScriptLoaded, setIsScriptLoaded] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
   const openedAtRef = useRef<number | null>(null)
 
+  const openHoneybookProgrammatically = useCallback(() => {
+    setAccordionValue((prev) => {
+      if (prev !== "honeybook-form") {
+        openedAtRef.current = Date.now()
+        event("contact_accordion_open")
+      }
+      return "honeybook-form"
+    })
+  }, [])
+
   const handleAccordionChange = (value: string | undefined) => {
-    if (value === "honeybook-form") {
+    if (value === "honeybook-form" && accordionValue !== "honeybook-form") {
       openedAtRef.current = Date.now()
       event("contact_accordion_open")
+      event("cta_click", {
+        cta_location: "how_it_works_section",
+        cta_text: "Book Grant",
+      })
     } else if (accordionValue === "honeybook-form" && !value) {
       const timeOpenMs = openedAtRef.current ? Date.now() - openedAtRef.current : 0
       openedAtRef.current = null
@@ -41,7 +54,7 @@ export function CTAForm() {
   useEffect(() => {
     const handleOpenAccordion = () => {
       console.log("Opening accordion via custom event")
-      setAccordionValue("honeybook-form")
+      openHoneybookProgrammatically()
     }
 
     window.addEventListener(OPEN_CONTACT_ACCORDION_EVENT, handleOpenAccordion)
@@ -52,14 +65,14 @@ export function CTAForm() {
         handleOpenAccordion
       )
     }
-  }, [])
+  }, [openHoneybookProgrammatically])
 
   // Check hash on mount and hash changes
   useEffect(() => {
     const checkHash = () => {
       if (window.location.hash === "#contact") {
         console.log("Opening accordion via hash")
-        setAccordionValue("honeybook-form")
+        openHoneybookProgrammatically()
       }
     }
 
@@ -72,7 +85,7 @@ export function CTAForm() {
     return () => {
       window.removeEventListener("hashchange", checkHash)
     }
-  }, [])
+  }, [openHoneybookProgrammatically])
 
   // Intersection Observer: Auto-open when scrolled into view with hash
   useEffect(() => {
@@ -83,7 +96,7 @@ export function CTAForm() {
             // Check if hash is set (indicating CTA click or direct navigation)
             if (window.location.hash === "#contact") {
               console.log("Opening accordion via intersection observer")
-              setAccordionValue("honeybook-form")
+              openHoneybookProgrammatically()
             }
           }
         })
@@ -101,7 +114,7 @@ export function CTAForm() {
         observer.unobserve(element)
       }
     }
-  }, [])
+  }, [openHoneybookProgrammatically])
 
   return (
     <>
@@ -120,7 +133,6 @@ export function CTAForm() {
         }}
         onLoad={() => {
           console.log("Honeybook script loaded")
-          setIsScriptLoaded(true)
           event("honeybook_widget_loaded")
         }}
         onError={() => {

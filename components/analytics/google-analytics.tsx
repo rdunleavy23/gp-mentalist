@@ -2,7 +2,7 @@
 
 import Script from "next/script"
 import { useEffect, useRef } from "react"
-import { GA_MEASUREMENT_ID, event } from "@/lib/gtag"
+import { GA_MEASUREMENT_ID, GOOGLE_ADS_ID, event } from "@/lib/gtag"
 
 const SCROLL_MILESTONES = [25, 50, 75, 90]
 
@@ -39,6 +39,7 @@ function useScrollDepth() {
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
+    handleScroll()
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 }
@@ -75,13 +76,17 @@ export function GoogleAnalytics() {
   useScrollDepth()
   useSectionVisibility()
 
-  if (!GA_MEASUREMENT_ID) return null
+  if (!GA_MEASUREMENT_ID && !GOOGLE_ADS_ID) return null
+
+  const loaderId = GA_MEASUREMENT_ID || GOOGLE_ADS_ID
+  const debugSuffix =
+    process.env.NODE_ENV === "development" ? ", { debug_mode: true }" : ""
 
   return (
     <>
       <Script
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${loaderId}`}
       />
       <Script
         id="gtag-init"
@@ -91,9 +96,8 @@ export function GoogleAnalytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}'${
-              process.env.NODE_ENV === "development" ? ", { debug_mode: true }" : ""
-            });
+            ${GA_MEASUREMENT_ID ? `gtag('config', '${GA_MEASUREMENT_ID}'${debugSuffix});` : ""}
+            gtag('config', '${GOOGLE_ADS_ID}');
           `,
         }}
       />
