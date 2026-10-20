@@ -40,7 +40,7 @@ export function ReactionSection() {
           {/* Vimeo Video Embed */}
           <div className="relative aspect-video rounded-2xl overflow-hidden bg-black shadow-2xl">
             <iframe
-              src="https://player.vimeo.com/video/796784867?badge=0&autopause=0&player_id=0&app_id=58479"
+              src="https://player.vimeo.com/video/1234522115?badge=0&autopause=0&player_id=0&app_id=58479"
               className="absolute inset-0 w-full h-full"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
